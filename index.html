@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Tiếng Trung Tổng Hợp 3 - Nga Thanh Mandarin Chinese</title>
+    <title>Tiếng Trung Tổng Hợp 3 - HSK4 Vocab Master</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Noto Sans SC cho chữ Hán -->
@@ -49,7 +49,7 @@
             background: #cbd5e1;
             border-radius: 4px;
         }
-        /* Safe area padding cho thiết bị di động có tai thỏ/thanh cử chỉ */
+        /* Safe area padding cho thiết bị di động */
         .pb-safe {
             padding-bottom: calc(env(safe-area-inset-bottom) + 4.5rem);
         }
@@ -85,6 +85,7 @@
                         <select id="desktop-lesson-select" onchange="changeLesson(this.value)" class="w-full text-xs font-bold rounded-xl border border-slate-200 bg-slate-50 p-2.5 pr-8 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 appearance-none cursor-pointer">
                             <option value="lesson1">Bài 1: 飞机晚点了</option>
                             <option value="lesson2">Bài 2: 他穿着一件黄色的衬衫</option>
+                            <option value="lesson3">Bài 3: 美国没有这么多自行车</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -205,6 +206,7 @@
                         <select id="mobile-lesson-select" onchange="changeLesson(this.value)" class="w-full text-xs font-bold rounded-xl border border-slate-200 bg-slate-50 p-2.5 pr-8 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 appearance-none cursor-pointer">
                             <option value="lesson1">Bài 1: 飞机晚点了</option>
                             <option value="lesson2">Bài 2: 他穿着一件黄色的衬衫</option>
+                            <option value="lesson3">Bài 3: 美国没有这么多自行车</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -221,7 +223,7 @@
                 </div>
             </header>
 
-            <!-- Khu vực làm việc chính (Scrollable & Responsive) -->
+            <!-- Khu vực làm việc chính -->
             <div class="flex-1 overflow-y-auto px-4 py-4 md:p-8 flex items-center justify-center pb-safe relative">
                 
                 <!-- CHẾ ĐỘ 1: FLASHCARDS -->
@@ -284,16 +286,21 @@
                     </div>
 
                     <!-- Thanh nút bấm hành động -->
-                    <div class="w-full flex items-center justify-between gap-3 shrink-0">
-                        <button onclick="prevCard()" class="w-12 h-12 bg-white hover:bg-slate-50 active:scale-90 border border-slate-200 rounded-xl flex items-center justify-center shadow-sm transition-transform text-slate-600">
+                    <div class="w-full flex items-center justify-between gap-2.5 shrink-0">
+                        <button onclick="prevCard()" class="w-12 h-12 bg-white hover:bg-slate-50 active:scale-90 border border-slate-200 rounded-xl flex items-center justify-center shadow-sm transition-transform text-slate-600 shrink-0">
                             <i class="fa-solid fa-arrow-left"></i>
                         </button>
                         
-                        <button id="btn-toggle-learned" onclick="toggleLearned()" class="flex-1 py-3 px-4 bg-white hover:bg-rose-50 active:scale-95 border border-slate-200 text-slate-400 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 font-bold text-xs" title="Đã thuộc từ này">
+                        <!-- Nút xáo trộn flashcards -->
+                        <button id="btn-shuffle" onclick="toggleShuffle()" class="flex-1 py-3 px-3 bg-white hover:bg-slate-50 active:scale-95 border border-slate-200 text-slate-600 rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 font-bold text-xs" title="Xáo trộn thứ tự học">
+                            <i class="fa-solid fa-shuffle"></i> <span id="shuffle-btn-text">Xáo trộn</span>
+                        </button>
+                        
+                        <button id="btn-toggle-learned" onclick="toggleLearned()" class="flex-1 py-3 px-3 bg-white hover:bg-rose-50 active:scale-95 border border-slate-200 text-slate-400 rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 font-bold text-xs" title="Đã thuộc từ này">
                             <i class="fa-solid fa-heart text-base"></i> <span id="learned-btn-text">Đã thuộc</span>
                         </button>
 
-                        <button onclick="nextCard()" class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-600 active:scale-90 text-white rounded-xl flex items-center justify-center shadow-md shadow-emerald-100 transition-transform">
+                        <button onclick="nextCard()" class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-600 active:scale-90 text-white rounded-xl flex items-center justify-center shadow-md shadow-emerald-100 transition-transform shrink-0">
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
@@ -390,7 +397,7 @@
                 <div id="view-translation" class="hidden w-full max-w-sm md:max-w-2xl mx-auto space-y-4">
                     <div class="bg-white rounded-2xl p-5 md:p-8 shadow-md border border-slate-100 space-y-4">
                         <div class="flex justify-between items-center text-xs">
-                            <span class="font-bold text-slate-400 uppercase tracking-wider">Luyện Dịch HSK3/4</span>
+                            <span class="font-bold text-slate-400 uppercase tracking-wider">Luyện Dịch HSK4</span>
                             <span class="text-[10px] text-amber-700 font-bold bg-amber-50 px-2 py-0.5 rounded border border-amber-100"><i class="fa-solid fa-wand-magic-sparkles mr-0.5"></i> Gemini AI</span>
                         </div>
 
@@ -510,7 +517,7 @@
         </main>
     </div>
 
-    <!-- MOBILE BOTTOM NAVIGATION (Thích ứng hoàn hảo trên màn hình nhỏ dưới md) -->
+    <!-- MOBILE BOTTOM NAVIGATION -->
     <div class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-slate-200 flex items-center justify-around px-2 z-30 shadow-lg">
         <button onclick="switchTab('flashcards')" id="btn-mobile-flashcards" class="tab-btn-mobile flex flex-col items-center justify-center w-12 h-12 text-emerald-600">
             <i class="fa-solid fa-layer-group text-lg"></i>
@@ -568,7 +575,7 @@
         </div>
     </div>
 
-    <!-- Custom Confirmation Dialog (Không dùng alert/confirm có sẵn của trình duyệt) -->
+    <!-- Custom Confirmation Dialog -->
     <div id="confirm-modal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl w-full max-w-sm p-5 space-y-4 shadow-2xl text-center">
             <div class="w-12 h-12 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center text-lg mx-auto">
@@ -585,7 +592,7 @@
         </div>
     </div>
 
-    <!-- Hộp thông báo Toasts linh hoạt -->
+    <!-- Hộp thông báo Toasts -->
     <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 space-y-2 pointer-events-none w-full max-w-xs"></div>
 
     <script>
@@ -593,10 +600,10 @@
         const lesson1Vocab = [
             { id: 1, word: "进门", pinyin: "jìnmén", translation: "bước vào cửa, vào cửa", example: "一进门，我就看见桌子上放着一束花。", exTranslation: "Vừa bước vào cửa, tôi liền nhìn thấy trên bàn đặt một bó hoa." },
             { id: 2, word: "看见", pinyin: "kànjiàn", translation: "nhìn thấy", example: "你在机场看见我的父母了吗？", exTranslation: "Bạn có nhìn thấy bố mẹ tôi ở sân bay không?" },
-            { id: 3, word: "接", pinyin: "jiē", translation: "đón (ai đó), nhận", example: "明天下午我去机场接你。", exTranslation: "Chiều mai tôi sẽ ra sân bay đón bạn." },
+            { id: 3, word: "接", pinyin: "jiē", translation: "đón (ai đó), nhận", example: "明天下午我去机场接 you。", exTranslation: "Chiều mai tôi sẽ ra sân bay đón bạn." },
             { id: 4, word: "飞机", pinyin: "fēijī", translation: "máy bay", example: "飞机马上就要起飞了，请系好安全带。", exTranslation: "Máy bay sắp cất cánh rồi, vui lòng thắt dây an toàn." },
-            { id: 5, word: "送", pinyin: "sòng", translation: "tiễn, đưa, tặng", example: "今天父母去机场送我出国留学。", exTranslation: "Hôm nay bố mẹ ra sân bay tiễn tôi đi du học nước ngoài." },
-            { id: 6, word: "父母", pinyin: "fùmǔ", translation: "bố mẹ, cha mẹ", example: "Chúng ta nên thường xuyên gọi điện cho bố mẹ để báo cáo tình hình cuộc sống.", exTranslation: "我们应该经常给父母打电话汇报生活情况。" },
+            { id: 5, word: "送", pinyin: "sòng", translation: "tiễn, đưa, tặng", example: "今天父母去机场送 me 出国留学。", exTranslation: "Hôm nay bố mẹ ra sân bay tiễn tôi đi du học nước ngoài." },
+            { id: 6, word: "父母", pinyin: "fùmǔ", translation: "bố mẹ, cha mẹ", example: "我们应该经常给父母打电话汇报生活情况。", exTranslation: "Chúng ta nên thường xuyên gọi điện cho bố mẹ để báo cáo tình hình cuộc sống." },
             { id: 7, word: "航班", pinyin: "hángbān", translation: "chuyến bay", example: "因为天气不好，今天的航班都晚点了。", exTranslation: "Vì thời tiết không tốt, các chuyến bay hôm nay đều bị trễ giờ." },
             { id: 8, word: "奇怪", pinyin: "qíguài", translation: "kỳ lạ, kỳ quái", example: "这件事情真奇怪，怎么没人知道呢？", exTranslation: "Chuyện này thật kỳ lạ, sao lại không có ai biết thế nhỉ?" },
             { id: 9, word: "都", pinyin: "dōu", translation: "đã (biểu thị nhấn mạnh thời gian, tương đương 已经)", example: "都十二点了，你为什么还没睡觉？", exTranslation: "Đã mười hai giờ rồi, tại sao bạn vẫn chưa đi ngủ?" },
@@ -618,7 +625,7 @@
         // Dữ liệu Bài học 2: 他穿着一件黄色的衬衫
         const lesson2Vocab = [
             { id: 1, word: "先生", pinyin: "xiānsheng", translation: "ông, ngài, chồng, tiên sinh", example: "王先生，好久不见，最近身体好吗？", exTranslation: "Ông Vương, đã lâu không gặp, dạo này sức khỏe tốt không?" },
-            { id: 2, word: "走散", pinyin: "zǒusàn", translation: "bị lạc, lạc nhau", example: "我们在商场里 và bạn bè 走散了。", exTranslation: "Chúng tôi đã bị lạc mất bạn bè trong trung tâm thương mại." },
+            { id: 2, word: "走散", pinyin: "zǒusàn", translation: "bị lạc, lạc nhau", example: "我们在商场里和朋友走散了。", exTranslation: "Chúng tôi đã bị lạc mất bạn bè trong trung tâm thương mại." },
             { id: 3, word: "不久", pinyin: "bùjiǔ", translation: "không lâu, chẳng bao lâu", example: "他刚来中国不久，所以中文说得还不太好。", exTranslation: "Anh ấy mới đến Trung Quốc không lâu, nên nói tiếng Trung chưa tốt lắm." },
             { id: 4, word: "长", pinyin: "zhǎng", translation: "trông, mọc ra, lớn lên (cháng: dài)", example: "这个女孩子长得非常漂亮。", exTranslation: "Cô bé này trông rất xinh đẹp." },
             { id: 5, word: "样子", pinyin: "yàngzi", translation: "dáng vẻ, hình dáng, kiểu dáng", example: "你还记得那个拿包的人长什么样子吗？", exTranslation: "Bạn còn nhớ người cầm túi trông dáng vẻ như thế nào không?" },
@@ -628,37 +635,66 @@
             { id: 9, word: "女士", pinyin: "nǚshì", translation: "bà, cô, nữ sĩ (lịch sự)", example: "女士们，先生们，欢迎大家来到北京。", exTranslation: "Thưa các bà, các ông, chào mừng mọi người đã đến Bắc Kinh." },
             { id: 10, word: "小姐", pinyin: "xiǎojiě", translation: "cô, tiểu thư", example: "张小姐，请问有什么可以帮您的？", exTranslation: "Cô Trương, xin hỏi có gì tôi có thể giúp được cô không?" },
             { id: 11, word: "米", pinyin: "mǐ", translation: "mét (đơn vị đo)", example: "那座红色的建筑高约三十米。", exTranslation: "Tòa nhà màu đỏ kia cao khoảng ba mươi mét." },
-            { id: 12, word: "穿", pinyin: "chuān", translation: "mặc (quần áo), đi (giày dép)", example: "她今天穿了一件红色的衣服。", exTranslation: "Hôm nay cô ấy mặc một bộ quần áo màu đỏ." },
-            { id: 13, word: "衬衫", pinyin: "chènshān", translation: "áo sơ mi", example: "他很喜欢穿白色的针织衬衫。", exTranslation: "Anh ấy rất thích mặc áo sơ mi màu trắng." },
-            { id: 14, word: "牛仔裤", pinyin: "niúzǎikù", translation: "quần bò, quần jean", example: "周末大家都喜欢穿牛仔裤 và giày thể thao。", exTranslation: "Cuối tuần mọi người đều thích mặc quần jean và giày thể thao." },
-            { id: 15, word: "背", pinyin: "bēi", translation: "đeo, cõng, vác", example: "she 背着一个小红皮包 đi học.", exTranslation: "Cô ấy đeo một chiếc cặp da nhỏ màu đỏ đi học." },
+            { id: 12, word: "穿", pinyin: "chuān", translation: "mặc (quần áo), đi (giày dép)", example: "she 今天穿了一件红色的衣服。", exTranslation: "Hôm nay cô ấy mặc một bộ quần áo màu đỏ." },
+            { id: 13, word: "衬衫", pinyin: "chènshān", translation: "áo sơ mi", example: "他很喜欢穿白色的衬衫。", exTranslation: "Anh ấy rất thích mặc áo sơ mi màu trắng." },
+            { id: 14, word: "牛仔裤", pinyin: "niúzǎikù", translation: "quần bò, quần jean", example: "周末大家都喜欢穿牛仔裤和运动鞋。", exTranslation: "Cuối tuần mọi người đều thích mặc quần jean và giày thể thao." },
+            { id: 15, word: "背", pinyin: "bēi", translation: "đeo, cõng, vác", example: "她背着一个小红皮包去上学。", exTranslation: "Cô ấy đeo một chiếc cặp da nhỏ màu đỏ đi học." },
             { id: 16, word: "包", pinyin: "bāo", translation: "cái túi, cặp sách, bao", example: "请问你在操场上看到我的书包了吗？", exTranslation: "Xin hỏi bạn có nhìn thấy cặp sách của tôi ở sân tập không?" },
             { id: 17, word: "左右", pinyin: "zuǒyòu", translation: "khoảng, xấp xỉ", example: "他大概有一米八左右，个子很高。", exTranslation: "Anh ấy cao khoảng 1m8, dáng người rất cao." },
-            { id: 18, word: "寻", pinyin: "xún", translation: "tìm, tìm kiếm (từ gốc)", example: "失物招领，我们要寻回失落的书本。", exTranslation: "Tìm đồ đánh rơi, chúng tôi muốn tìm lại cuốn sách đã mất." },
+            { id: 18, word: "寻", pinyin: "xún", translation: "tìm, tìm kiếm (từ gốc)", example: "失物招领，我们要寻回丢失的书本。", exTranslation: "Tìm đồ đánh rơi, chúng tôi muốn tìm lại cuốn sách đã mất." },
             { id: 19, word: "寻找", "pinyin": "xúnzhǎo", translation: "tìm kiếm, tìm tòi", example: "警察正在帮助那位女士寻找走散的孩子。", exTranslation: "Cảnh sát đang giúp người phụ nữ đó tìm kiếm đứa trẻ bị lạc." },
             { id: 20, word: "毫米", pinyin: "háomǐ", translation: "milimet", example: "这支铅笔的笔芯直径是零点五毫米。", exTranslation: "Ngòi của chiếc bút chì này có đường kính 0.5 milimet." },
             { id: 21, word: "分米", pinyin: "fēnmǐ", translation: "đêximét", example: "一米等于十分米，一分米等于十厘米。", exTranslation: "Một mét bằng mười đêximét, một đêximét bằng mười centimét." },
-            { id: 22, word: "厘米", pinyin: "límǐ", translation: "centimet", example: "这本子的厚度大概是一厘米左右。", exTranslation: "Độ dày của cuốn sổ này khoảng chừng một centimet." },
+            { id: 22, word: "厘米", pinyin: "límǐ", translation: "centimet", example: "这本书的厚度大概是一厘米左右。", exTranslation: "Độ dày của cuốn sổ này khoảng chừng một centimet." },
             { id: 23, word: "千米", pinyin: "qiānmǐ", translation: "kilômet", example: "学校距离我们家大概有五千米远。", exTranslation: "Trường học cách nhà chúng tôi khoảng 5 kilômet." },
-            { id: 24, word: "公里", pinyin: "gōnglǐ", translation: "kilômet (dùng phổ biến khẩu ngữ)", example: "他每天早上都要坚持跑三公里远。", exTranslation: "Mỗi sáng anh ấy đều kiên trì chạy bộ ba kilômet." },
+            { id: 24, word: "公里", pinyin: "gōnglǐ", translation: "kilômet (khẩu ngữ)", example: "他每天早上都要坚持跑三公里远。", exTranslation: "Mỗi sáng anh ấy đều kiên trì chạy bộ ba kilômet." },
             { id: 25, word: "礼物", pinyin: "lǐwù", translation: "món quà, quà tặng", example: "这是母亲送给我的生日礼物。", exTranslation: "Đây là món quà sinh nhật mẹ tặng cho tôi." },
-            { id: 26, word: "货物", pinyin: "huòwù", translation: "hàng hóa", example: "these 货物 phải chuyển đến sân bay phía Nam chiều nay.", exTranslation: "Những hàng hóa này phải được chuyển đến sân bay phía Nam chiều nay." },
+            { id: 26, word: "货物", pinyin: "huòwù", translation: "hàng hóa", example: "这些货物必须在今天下午送到南面机场。", exTranslation: "Những hàng hóa này phải được chuyển đến sân bay phía Nam chiều nay." },
             { id: 27, word: "物品", pinyin: "wùpǐn", translation: "vật phẩm, đồ đạc", example: "请保管好自己的贵重物品，谨防丢失。", exTranslation: "Xin vui lòng bảo quản tốt đồ dùng quý giá của mình, đề phòng thất lạc." },
             { id: 28, word: "失物", pinyin: "shīwù", translation: "đồ bị mất, đồ thất lạc", example: "如果您拾到了失物，请主动和我们联系。", exTranslation: "Nếu bạn nhặt được đồ thất lạc, xin hãy chủ động liên hệ với chúng tôi." },
             { id: 29, word: "物", pinyin: "wù", translation: "vật, đồ vật", example: "这里有许多古代的生活物品。", exTranslation: "Ở đây có rất nhiều đồ vật sinh hoạt cổ đại." },
             { id: 30, word: "启事", pinyin: "qǐshì", translation: "thông báo, cáo thị", example: "他在报纸上写了一份寻人启事。", exTranslation: "Anh ấy đã đăng một thông báo tìm người trên tờ báo." },
             { id: 31, word: "南", pinyin: "nán", translation: "phía nam, hướng nam", example: "我们的操场在教学楼的南面。", exTranslation: "Sân vận động của chúng tôi ở phía nam của tòa nhà giảng đường." },
-            { id: 32, word: "操场", pinyin: "cāochǎng", translation: "sân tập thể dục, sân vận động", example: "同学们正在操场上打红色的皮球。", exTranslation: "Các học sinh đang chơi những quả bóng màu đỏ trên sân tập." },
-            { id: 33, word: "红色", pinyin: "hóngsè", translation: "màu đỏ", example: "她穿着一件红色的衬衫和牛仔裤。", exTranslation: "Cô ấy mặc một chiếc áo sơ mi màu đỏ và quần bò." },
-            { id: 34, word: "里面", pinyin: "lǐmiàn", translation: "bên trong, trong", example: "这个红色的包里面放着几本子和一支配笔。", exTranslation: "Bên trong chiếc túi màu đỏ này đựng vài cuốn vở và một chiếc bút." },
-            { id: 35, word: "支", pinyin: "zhī", translation: "chiếc, cái (lượng từ của bút, ca khúc)", example: "桌子上放着一支蓝色的钢笔。", exTranslation: "Trên bàn đặt một chiếc bút máy màu xanh." },
+            { id: 32, word: "操场", pinyin: "cāochǎng", translation: "sân tập, sân vận động", example: "同学们正在操场上踢足球。", exTranslation: "Các học sinh đang chơi bóng đá trên sân tập." },
+            { id: 33, word: "红色", pinyin: "hóngsè", translation: "màu đỏ", example: "她穿着一件红色的衬衫和蓝色牛仔裤。", exTranslation: "Cô ấy mặc một chiếc áo sơ mi màu đỏ và quần bò xanh." },
+            { id: 34, word: "里面", pinyin: "lǐmiàn", translation: "bên trong, trong", example: "这个红色的包里面放着几本书和一支笔。", exTranslation: "Bên trong chiếc túi màu đỏ này đựng vài cuốn sách và một chiếc bút." },
+            { id: 35, word: "支", pinyin: "zhī", translation: "chiếc, cái (lượng từ của bút, bài hát)", example: "桌子上放着一支蓝色的钢笔。", exTranslation: "Trên bàn đặt một chiếc bút máy màu xanh." },
             { id: 36, word: "笔", pinyin: "bǐ", translation: "bút", example: "请用这支红色的笔在纸上签名。", exTranslation: "Vui lòng dùng chiếc bút màu đỏ này để ký tên lên giấy." },
-            { id: 37, word: "本子", pinyin: "běnzi", translation: "quyển vở, sổ tay", example: "他把老师说的话记在了本子上。", exTranslation: "Anh ấy đã ghi chép lại lời giáo viên nói vào cuốn vở." },
-            { id: 38, word: "拾", pinyin: "shí", translation: "nhặt, lượm", example: "拾金不昧是中华民族的传统美德。", exTranslation: "Nhặt được của rơi trả người đánh mất là đức tính truyền thống của dân tộc." },
-            { id: 39, word: "者", pinyin: "zh者", translation: "người, kẻ (hậu tố chỉ thực thể hành động)", example: "拾者请与失主取得联系，非常感谢。", exTranslation: "Người nhặt được xin hãy liên hệ với người mất, xin cảm ơn rất nhiều." },
+            { id: 37, word: "本子", pinyin: "běnzi", translation: "quyển vở, sổ tay", example: "他把老师说的话都记在了本子上。", exTranslation: "Anh ấy đã ghi chép lại những lời giáo viên nói vào cuốn vở." },
+            { id: 38, word: "拾", pinyin: "shí", translation: "nhặt, lượm", example: "拾金不昧是我们的传统美德。", exTranslation: "Nhặt được của rơi trả người đánh mất là đức tính truyền thống của chúng ta." },
+            { id: 39, word: "者", pinyin: "zhě", translation: "người, kẻ", example: "拾者请与失主取得联系，非常感谢。", exTranslation: "Người nhặt được xin hãy liên hệ với người mất, xin cảm ơn rất nhiều." },
             { id: 40, word: "或者", pinyin: "huòzhě", translation: "hoặc là (dùng trong câu trần thuật)", example: "你可以打电话或者发微信联系我。", exTranslation: "Bạn có thể gọi điện thoại hoặc gửi WeChat để liên hệ với tôi." },
             { id: 41, word: "联系", pinyin: "liánxì", translation: "liên hệ, liên lạc", example: "有任何事情，请随时与我们取得联系。", exTranslation: "Có bất kỳ việc gì, xin vui lòng liên lạc với chúng tôi bất cứ lúc nào." },
-            { id: 42, word: "感谢", pinyin: "gǎnxiè", translation: "cảm ơn, tạ ơn, biết ơn", example: "非常感谢您在困难的时候给予我的帮助。", exTranslation: "Rất cảm ơn sự giúp đỡ của bạn dành cho tôi lúc gặp khó khăn." }
+            { id: 42, word: "感谢", pinyin: "gǎnxiè", translation: "cảm ơn, tạ ơn", example: "非常感谢您在困难的时候给予我的帮助。", exTranslation: "Rất cảm ơn sự giúp đỡ của bạn dành cho tôi lúc gặp khó khăn." }
+        ];
+
+        // Dữ liệu Bài học 3: 美国没有这么多自行车
+        const lesson3Vocab = [
+            { id: 1, word: "短", pinyin: "duǎn", translation: "ngắn", example: "他的头发长得很短，看起来很精神。", exTranslation: "Tóc anh ấy rất ngắn, nhìn rất năng động." },
+            { id: 2, word: "一样", pinyin: "yíyàng", translation: "giống nhau", example: "他的性格跟他的父亲一模一样。", exTranslation: "Tính cách của anh ấy giống hệt cha mình." },
+            { id: 3, word: "地方", pinyin: "dìfang", translation: "địa phương, nơi chốn", example: "这个地方的名胜古迹非常多。", exTranslation: "Nơi này có rất nhiều danh lam thắng cảnh." },
+            { id: 4, word: "比如说", pinyin: "bǐrúshuō", translation: "ví dụ như", example: "我有很多爱好，比如说听音乐和旅行。", exTranslation: "Tôi có rất nhiều sở thích, ví dụ như nghe nhạc và du lịch." },
+            { id: 5, word: "面积", pinyin: "miànjī", translation: "diện tích", example: "那个公园的面积非常大，大概有五平方公里。", exTranslation: "Diện tích của công viên đó rất lớn, khoảng 5 km vuông." },
+            { id: 6, word: "人口", pinyin: "rénkǒu", translation: "dân số", example: "中国的人口非常多，是世界上人口最多的国家之一。", exTranslation: "Dân số Trung Quốc rất đông, là một trong những quốc gia đông dân nhất thế giới." },
+            { id: 7, word: "发达国家", pinyin: "fādá guójiā", translation: "nước phát triển", example: "美国是一个高度发达国家，汽车到处都是。", exTranslation: "Mỹ là một nước phát triển cao, ô tô có ở khắp mọi nơi." },
+            { id: 8, word: "发展中国家", pinyin: "fāzhǎnzhōng guójiā", translation: "nước đang phát triển", example: "越南是一个快速发展中的国家，机遇很多。", exTranslation: "Việt Nam là một quốc gia đang phát triển nhanh chóng, có rất nhiều cơ hội." },
+            { id: 9, word: "人们", pinyin: "rénmen", translation: "mọi người", example: "随着生活水平的提高，人们越来越关注健康。", exTranslation: "Với mức sống được nâng cao, mọi người ngày càng chú trọng đến sức khỏe." },
+            { id: 10, word: "上班", pinyin: "shàngbān", translation: "đi làm", example: "爸爸每天早上八点去公司上班。", exTranslation: "Bố đi làm ở công ty lúc 8 giờ sáng mỗi ngày." },
+            { id: 11, word: "上学", pinyin: "shàngxue", translation: "đi học", example: "孩子们每天早上都高高兴兴地去上学。", exTranslation: "Trẻ em vui vẻ đi học vào mỗi buổi sáng." },
+            { id: 12, word: "开", pinyin: "kāi", translation: "lái (xe), mở", example: "他开着一辆新买的红色汽车去旅行。", exTranslation: "Anh ấy lái một chiếc xe ô tô màu đỏ mới mua đi du lịch." },
+            { id: 13, word: "亿", pinyin: "yì", translation: "trăm triệu, 100.000.000", example: "那个国家的总人口已经超过了一亿。", exTranslation: "Tổng dân số của quốc gia đó đã vượt quá 100 triệu người." },
+            { id: 14, word: "到处", pinyin: "dàochù", translation: "khắp nơi", example: "春天来了，公园里到处都是漂亮的花朵。", exTranslation: "Mùa xuân đến rồi, trong công viên khắp nơi đều là những bông hoa xinh đẹp." },
+            { id: 15, word: "下班", pinyin: "xiàbān", translation: "tan làm", example: "下班以后，他常常去操场跑步锻炼身体。", exTranslation: "Sau khi tan sở, anh ấy thường ra sân vận động chạy bộ rèn luyện sức khỏe." },
+            { id: 16, word: "汽车", pinyin: "qìchē", translation: "ô tô, xe hơi", example: "现在城市里的汽车越来越多，常常遇到堵车。", exTranslation: "Hiện nay ô tô trong thành phố ngày càng nhiều, thường gặp tắc đường." },
+            { id: 17, word: "像", pinyin: "xiàng", translation: "giống, như là", example: "他的眼睛大大的，真像他的母亲。", exTranslation: "Đôi mắt của cậu ấy to tròn, thật giống mẹ mình." },
+            { id: 18, word: "河流", pinyin: "hélí", translation: "sông ngòi", example: "那个地方有许多壮观的河流和高山。", exTranslation: "Nơi đó có rất nhiều sông ngòi hùng vĩ và núi cao." },
+            { id: 19, word: "壮观", pinyin: "zhuàngguān", translation: "hùng vĩ, tráng lệ", example: "黄河的景色非常壮观，吸引了无数游客。", exTranslation: "Phong cảnh sông Hoàng Hà rất hùng vĩ, thu hút vô số du khách." },
+            { id: 20, word: "种类", pinyin: "zhǒnglèi", translation: "chủng loại, loại", example: "这个机场有各种种类的国内和国际航班。", exTranslation: "Sân bay này có nhiều loại chuyến bay nội địa và quốc tế." },
+            { id: 21, word: "菜系", pinyin: "càixì", translation: "hệ ẩm thực", example: "中国有著名的八大菜系，每种菜系都有独特的风味。", exTranslation: "Trung Quốc có 8 hệ ẩm thực lớn nổi tiếng, mỗi hệ đều có hương vị độc đáo riêng." },
+            { id: 22, word: "名胜古迹", pinyin: "míngshèng gǔjì", translation: "danh lam thắng cảnh", example: "北京有很多名胜古迹，比如长城和故宫。", exTranslation: "Bắc Kinh có rất nhiều danh lam thắng cảnh, như Vạn Lý Trường Thành và Cố Cung." },
+            { id: 23, word: "千", pinyin: "qiān", translation: "nghìn, ngàn", example: "这台笔记本电脑花了大概四千人民币。", exTranslation: "Chiếc máy tính xách tay này tốn khoảng 4 nghìn Nhân dân tệ." },
+            { id: 24, word: "民族", pinyin: "mínzú", translation: "dân tộc", example: "每一个民族都有自己独特的传统节日和文化。", exTranslation: "Mỗi dân tộc đều có ngày lễ truyền thống và văn hóa độc đáo riêng." },
+            { id: 25, word: "少数民族", pinyin: "shǎoshù mínzú", translation: "dân tộc thiểu số", example: "云南省是中国少数民族最多的地方，文化十分多元。", exTranslation: "Tỉnh Vân Nam là nơi có nhiều dân tộc thiểu số nhất Trung Quốc, văn hóa rất đa dạng." }
         ];
 
         // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 1
@@ -680,6 +716,15 @@
             { id: 6, vietnamese: "Bạn có thể lựa chọn thanh toán bằng tiền mặt hoặc thanh toán trực tuyến.", chinese: "你可以选择用现金付款或者在线支付。", pinyin: "nǐ kěyǐ xuǎnzé yòng xiànjīn fùkuǎn huòzhě zàixiàn zhīfù.", targetWord: "或者" }
         ];
 
+        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 3
+        const lesson3Sentences = [
+            { id: 1, vietnamese: "Mỹ là một nước phát triển, diện tích rất lớn nhưng dân số không đông bằng Trung Quốc.", chinese: "美国是一个发达国家，面积很大，但是人口没有中国那么多。", pinyin: "měiguó shì yí gè fādá guójiā, miànjī hěn dà, dànshì rénkǒu méiyǒu zhōngguó nàme duō.", targetWord: "发达国家" },
+            { id: 2, vietnamese: "Sau khi tan làm, mọi người lái ô tô đi khắp nơi tìm mua món quà sinh nhật.", chinese: "下班以后，人们开着汽车到处寻找购买生日礼物。", pinyin: "xiàbān yǐhòu, rénmen kāizhe qìchē dàochù xúnzhǎo gòumǎi shēngrì lǐwù.", targetWord: "下班" },
+            { id: 3, vietnamese: "Trung Quốc có rất nhiều danh lam thắng cảnh hùng vĩ, ví dụ như sông Hoàng Hà.", chinese: "中国有很多壮观的名胜古迹，比如说黄河。", pinyin: "zhōngguó hǒu hěn duō zhuàngguān de míngshèng gǔjì, bǐrúshuō huánghé.", targetWord: "名胜古迹" },
+            { id: 4, vietnamese: "Mỗi dân tộc, đặc biệt là các dân tộc thiểu số, đều có các món ăn đặc sắc khác nhau.", chinese: "每个民族，尤其是少数民族，都有自己独特的菜系。", pinyin: "měi gè mínzú, yóuqíshì shǎoshù mínzú, dōu yǒu zìjǐ dútè de càixì.", targetWord: "少数民族" },
+            { id: 5, vietnamese: "Thời gian nghỉ hè rất ngắn, tôi muốn cùng bố mẹ đi tham quan các địa danh lịch sử.", chinese: "暑假的时间很短，我想跟父母一起去参观一些名胜古迹。", pinyin: "shǔjià de shíjiān hěn duǎn, wǒ xiǎng gēn fùmǔ yìqǐ qù cānguān yìxiē míngshèng gǔjì.", targetWord: "短" }
+        ];
+
         // Quản lý Trạng thái
         let activeLesson = 'lesson1'; // Mặc định Bài 1
         let vocabData = [...lesson1Vocab]; // Bộ dữ liệu đang kích hoạt
@@ -690,6 +735,7 @@
         let learnedList = JSON.parse(localStorage.getItem('hsk4_learned_words_' + activeLesson)) || [];
         let ttsSpeed = 1.0;
         let ttsEngine = 'gemini'; // Ưu tiên Voice AI chất lượng cao!
+        let isShuffled = false; // Trạng thái xáo trộn flashcards
 
         // Xử lý vuốt chạm cử chỉ trên điện thoại
         let touchstartX = 0;
@@ -822,9 +868,19 @@
             if (lessonKey === 'lesson1') {
                 vocabData = [...lesson1Vocab];
                 localSentences = [...lesson1Sentences];
-            } else {
+            } else if (lessonKey === 'lesson2') {
                 vocabData = [...lesson2Vocab];
                 localSentences = [...lesson2Sentences];
+            } else {
+                vocabData = [...lesson3Vocab];
+                localSentences = [...lesson3Sentences];
+            }
+
+            // Hủy xáo trộn nếu đang bật
+            isShuffled = false;
+            const btn = document.getElementById('btn-shuffle');
+            if (btn) {
+                btn.innerHTML = `<i class="fa-solid fa-shuffle"></i> <span id="shuffle-btn-text">Xáo trộn</span>`;
             }
 
             // Đặt lại index học
@@ -838,7 +894,8 @@
             // Cập nhật tiêu đề bảng và tab hiển thị
             const lessonTitles = {
                 'lesson1': 'Bài 1: 飞机晚点了',
-                'lesson2': 'Bài 2: 他穿着一件黄色的衬衫'
+                'lesson2': 'Bài 2: 他穿着一件黄色的衬衫',
+                'lesson3': 'Bài 3: 美国没有这么多自行车'
             };
             document.getElementById('list-lesson-title').textContent = lessonTitles[lessonKey];
             document.getElementById('list-vocab-count').textContent = `${vocabData.length} Từ`;
@@ -847,6 +904,35 @@
 
             // Làm mới tab đang chạy
             switchTab(currentTab);
+        }
+
+        // Khôi phục trật tự gốc khi tắt xáo trộn
+        function restoreOriginalOrder() {
+            if (activeLesson === 'lesson1') vocabData = [...lesson1Vocab];
+            else if (activeLesson === 'lesson2') vocabData = [...lesson2Vocab];
+            else if (activeLesson === 'lesson3') vocabData = [...lesson3Vocab];
+            isShuffled = false;
+        }
+
+        // Bật / tắt chế độ xáo trộn Flashcards
+        function toggleShuffle() {
+            isShuffled = !isShuffled;
+            const btn = document.getElementById('btn-shuffle');
+            if (isShuffled) {
+                // Fisher-Yates shuffle
+                for (let i = vocabData.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [vocabData[i], vocabData[j]] = [vocabData[j], vocabData[i]];
+                }
+                btn.innerHTML = `<i class="fa-solid fa-shuffle text-rose-500"></i> <span id="shuffle-btn-text" class="text-rose-600">Hủy xáo</span>`;
+                showToast("Đã xáo trộn thứ tự từ vựng!", "success");
+            } else {
+                restoreOriginalOrder();
+                btn.innerHTML = `<i class="fa-solid fa-shuffle"></i> <span id="shuffle-btn-text">Xáo trộn</span>`;
+                showToast("Đã khôi phục thứ tự ban đầu.", "info");
+            }
+            flashcardIndex = 0;
+            updateFlashcard();
         }
 
         // Điều hướng Tab
@@ -881,7 +967,7 @@
 
             const titleMap = {
                 'flashcards': 'Ghi nhớ Flashcards',
-                'quiz': 'Trắc nghiệm HSK3/4',
+                'quiz': 'Trắc nghiệm HSK4',
                 'dictation': 'Chính tả & Luyện viết',
                 'translation': 'Luyện dịch cùng AI',
                 'list': 'Danh sách từ vựng'
@@ -939,7 +1025,7 @@
             }
         }
 
-        // Hiển thị thông báo Toast đẹp trên điện thoại
+        // Hiển thị thông báo Toast
         function showToast(message, type = "info") {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -996,10 +1082,10 @@
             const heartBtn = document.getElementById('btn-toggle-learned');
             const learnedText = document.getElementById('learned-btn-text');
             if (learnedList.includes(word.word)) {
-                heartBtn.className = "flex-1 py-3 px-4 bg-rose-50 border border-rose-200 text-rose-600 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 font-bold text-xs";
+                heartBtn.className = "flex-1 py-3 px-3 bg-rose-50 border border-rose-200 text-rose-600 rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 font-bold text-xs";
                 learnedText.textContent = "Đã thuộc";
             } else {
-                heartBtn.className = "flex-1 py-3 px-4 bg-white hover:bg-rose-50 border border-slate-200 text-slate-400 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 font-bold text-xs";
+                heartBtn.className = "flex-1 py-3 px-3 bg-white hover:bg-rose-50 border border-slate-200 text-slate-400 rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 font-bold text-xs";
                 learnedText.textContent = "Chưa thuộc";
             }
         }
@@ -1070,8 +1156,8 @@
         }
 
         function handleGesture() {
-            if (touchendX < touchstartX - 60) nextCard(); // vuốt sang trái -> xem từ tiếp theo
-            if (touchendX > touchstartX + 60) prevCard(); // vuốt sang phải -> xem từ trước đó
+            if (touchendX < touchstartX - 60) nextCard(); // vuốt sang trái
+            if (touchendX > touchstartX + 60) prevCard(); // vuốt sang phải
         }
 
         let quizScore = 0;
@@ -1091,7 +1177,6 @@
             const otherWords = vocabData.filter(item => item.id !== currentQuizWord.id);
             const shuffledOthers = otherWords.sort(() => 0.5 - Math.random());
             
-            // Đề phòng trường hợp danh sách ít hơn 4 từ
             if (shuffledOthers[0]) options.push(shuffledOthers[0]);
             if (shuffledOthers[1]) options.push(shuffledOthers[1]);
             if (shuffledOthers[2]) options.push(shuffledOthers[2]);
@@ -1229,20 +1314,17 @@
             localSentences.forEach((sentence, index) => {
                 const opt = document.createElement('option');
                 opt.value = index;
-                // Rút gọn bớt độ dài mô tả hiển thị trên di động để giao diện không bị lệch
                 const previewText = sentence.vietnamese.length > 30 ? sentence.vietnamese.substring(0, 27) + '...' : sentence.vietnamese;
                 opt.textContent = `Câu ${index + 1} [Từ: ${sentence.targetWord}]: ${previewText}`;
                 select.appendChild(opt);
             });
 
-            // Tùy chọn để tạo câu mới từ AI
             const aiOpt = document.createElement('option');
             aiOpt.value = 'ai';
             aiOpt.textContent = '✨ Tạo thêm câu mới với Gemini AI...';
             select.appendChild(aiOpt);
         }
 
-        // Sự kiện khi người dùng chọn câu dịch cụ thể từ danh sách
         function selectTranslationSentence(val) {
             if (val === 'ai') {
                 regenerateTranslationSentence();
@@ -1279,7 +1361,7 @@
             }
         }
 
-        // Tạo câu luyện dịch ngẫu nhiên từ Gemini AI cho cả Bài 1 và Bài 2
+        // Tạo câu luyện dịch ngẫu nhiên từ Gemini AI
         async function regenerateTranslationSentence() {
             showToast("Gemini AI đang soạn một câu kiểm tra mới...", "info");
             const randomWordObj = vocabData[Math.floor(Math.random() * vocabData.length)];
@@ -1325,13 +1407,9 @@
                         targetWord: randomWordObj.word
                     };
 
-                    // Thêm câu mới vào danh sách câu của bài học hiện tại để lưu trữ trong phiên học
                     localSentences.push(newSentence);
-                    
-                    // Vẽ lại danh sách chọn
                     renderTranslationSentenceList();
                     
-                    // Tự động chọn câu mới sinh
                     const newIndex = localSentences.length - 1;
                     document.getElementById('trans-sentence-select').value = newIndex;
                     selectTranslationSentence(newIndex);
@@ -1341,7 +1419,6 @@
                     throw new Error();
                 }
             } catch (err) {
-                // Đề phòng lỗi mạng - chọn một câu ngẫu nhiên có sẵn trong danh sách
                 const randIndex = Math.floor(Math.random() * localSentences.length);
                 document.getElementById('trans-sentence-select').value = randIndex;
                 selectTranslationSentence(randIndex);
@@ -1426,7 +1503,6 @@
                     throw new Error();
                 }
             } catch (err) {
-                // Dự phòng khi lỗi kết nối mạng
                 document.getElementById('trans-score-badge').textContent = "OK";
                 document.getElementById('trans-status-pill').textContent = "Đã dịch";
                 document.getElementById('trans-feedback-text').innerHTML = "Tính năng phân tích tự động gián đoạn. Bạn hãy tự đối chiếu với đáp án chuẩn ở bên dưới nhé!";
@@ -1439,6 +1515,7 @@
             }
         }
 
+        // Tạo bảng từ vựng tra cứu
         function generateVocabTable() {
             const tbody = document.getElementById('vocab-table-body');
             tbody.innerHTML = '';
