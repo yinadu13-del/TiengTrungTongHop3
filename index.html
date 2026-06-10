@@ -86,6 +86,7 @@
                             <option value="lesson1">Bài 1: 飞机晚点了</option>
                             <option value="lesson2">Bài 2: 他穿着一件黄色的衬衫</option>
                             <option value="lesson3">Bài 3: 美国没有这么多自行车</option>
+                            <option value="lesson4">Bài 4: 冰箱里塞满了水果</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -207,6 +208,7 @@
                             <option value="lesson1">Bài 1: 飞机晚点了</option>
                             <option value="lesson2">Bài 2: 他穿着一件黄色的衬衫</option>
                             <option value="lesson3">Bài 3: 美国没有这么多自行车</option>
+                            <option value="lesson4">Bài 4: 冰箱里塞满了水果</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -687,14 +689,59 @@
             { id: 15, word: "下班", pinyin: "xiàbān", translation: "tan làm", example: "下班以后，他常常去操场跑步锻炼身体。", exTranslation: "Sau khi tan sở, anh ấy thường ra sân vận động chạy bộ rèn luyện sức khỏe." },
             { id: 16, word: "汽车", pinyin: "qìchē", translation: "ô tô, xe hơi", example: "现在城市里的汽车越来越多，常常遇到堵车。", exTranslation: "Hiện nay ô tô trong thành phố ngày càng nhiều, thường gặp tắc đường." },
             { id: 17, word: "像", pinyin: "xiàng", translation: "giống, như là", example: "他的眼睛大大的，真像他的母亲。", exTranslation: "Đôi mắt của cậu ấy to tròn, thật giống mẹ mình." },
-            { id: 18, word: "河流", pinyin: "héliú", translation: "sông ngòi", example: "那个地方有许多壮观的河流和高山。", exTranslation: "Nơi đó có rất nhiều sông ngòi hùng vĩ và núi cao." },
+            { id: 18, word: "河流", pinyin: "hélí", translation: "sông ngòi", example: "那个地方有许多壮观的河流和高山。", exTranslation: "Nơi đó có rất nhiều sông ngòi hùng vĩ và núi cao." },
             { id: 19, word: "壮观", pinyin: "zhuàngguān", translation: "hùng vĩ, tráng lệ", example: "黄河的景色非常壮观，吸引了无数游客。", exTranslation: "Phong cảnh sông Hoàng Hà rất hùng vĩ, thu hút vô số du khách." },
             { id: 20, word: "种类", pinyin: "zhǒnglèi", translation: "chủng loại, loại", example: "这个机场有各种种类的国内和国际航班。", exTranslation: "Sân bay này có nhiều loại chuyến bay nội địa và quốc tế." },
-            { id: 21, word: "菜系", pinyin: "càixì", translation: "ẩm thực vùng miền", example: "中国有著名的八大菜系，每种菜系都有独特的风味。", exTranslation: "Trung Quốc có 8 hệ ẩm thực lớn nổi tiếng, mỗi hệ đều có hương vị độc đáo riêng." },
+            { id: 21, word: "菜系", pinyin: "càixì", translation: "hệ ẩm thực", example: "中国有著名的八大菜系，每种菜系都有独特的风味。", exTranslation: "Trung Quốc có 8 hệ ẩm thực lớn nổi tiếng, mỗi hệ đều có hương vị độc đáo riêng." },
             { id: 22, word: "名胜古迹", pinyin: "míngshèng gǔjì", translation: "danh lam thắng cảnh", example: "北京有很多名胜古迹，比如长城和故宫。", exTranslation: "Bắc Kinh có rất nhiều danh lam thắng cảnh, như Vạn Lý Trường Thành và Cố Cung." },
             { id: 23, word: "千", pinyin: "qiān", translation: "nghìn, ngàn", example: "这台笔记本电脑花了大概四千人民币。", exTranslation: "Chiếc máy tính xách tay này tốn khoảng 4 nghìn Nhân dân tệ." },
             { id: 24, word: "民族", pinyin: "mínzú", translation: "dân tộc", example: "每一个民族都有自己独特的传统节日和文化。", exTranslation: "Mỗi dân tộc đều có ngày lễ truyền thống và văn hóa độc đáo riêng." },
             { id: 25, word: "少数民族", pinyin: "shǎoshù mínzú", translation: "dân tộc thiểu số", example: "云南省是中国少数民族最多的地方，文化十分多元。", exTranslation: "Tỉnh Vân Nam là nơi có nhiều dân tộc thiểu số nhất Trung Quốc, văn hóa rất đa dạng." }
+        ];
+
+        // Dữ liệu Bài học 4: 冰箱里塞满了水果
+        const lesson4Vocab = [
+            { id: 1, word: "苹果", pinyin: "píngguǒ", translation: "quả táo", example: "每天吃一个苹果对身体很好。", exTranslation: "Mỗi ngày ăn một quả táo rất tốt cho sức khỏe." },
+            { id: 2, word: "橘子", pinyin: "júzi", translation: "quả quýt", example: "这个橘子太酸了，我不喜欢吃。", exTranslation: "Quả quýt này chua quá, tôi không thích ăn." },
+            { id: 3, word: "水果", pinyin: "shuǐguǒ", translation: "hoa quả, trái cây", example: "冰箱里还有很多新鲜的水果。", exTranslation: "Trong tủ lạnh vẫn còn rất nhiều trái cây tươi." },
+            { id: 4, word: "报", pinyin: "bào", translation: "báo, báo cáo", example: "每天早上他都有看报的习惯。", exTranslation: "Mỗi buổi sáng anh ấy đều có thói quen đọc báo." },
+            { id: 5, word: "报道", pinyin: "bàodào", translation: "đưa tin, bản tin", example: "电视上报道了昨天发生的新闻。", exTranslation: "Trên tivi đã đưa tin về tin tức xảy ra ngày hôm qua." },
+            { id: 6, word: "报告", pinyin: "bàogào", translation: "báo cáo", example: "经理正在开会听取工作报告。", exTranslation: "Giám đốc đang họp để nghe báo cáo công việc." },
+            { id: 7, word: "回报", pinyin: "huíbào", translation: "báo đáp, đền đáp", example: "父母的爱是不求任何回报的。", exTranslation: "Tình yêu của cha mẹ là không mong cầu bất kỳ sự báo đáp nào." },
+            { id: 8, word: "生病", pinyin: "shēngbìng", translation: "bị ốm", example: "他今天生病了，不能去上学。", exTranslation: "Hôm nay anh ấy bị ốm rồi, không thể đi học được." },
+            { id: 9, word: "再说", pinyin: "zàishuō", translation: "hơn nữa, vả lại, nói sau", example: "外面在下雨，再说我也很累，就不去了。", exTranslation: "Bên ngoài đang mưa, hơn nữa tôi cũng rất mệt, nên sẽ không đi đâu." },
+            { id: 10, word: "酸", pinyin: "suān", translation: "chua", example: "这种水果味道很酸，可是富含维生素。", exTranslation: "Loại trái cây này có vị rất chua, nhưng lại giàu vitamin." },
+            { id: 11, word: "维生素", pinyin: "wéishēngsù", translation: "vitamin", example: "橘子里含有很多维生素C。", exTranslation: "Trong quả quýt có chứa rất nhiều vitamin C." },
+            { id: 12, word: "成果", pinyin: "chéngguǒ", translation: "thành quả", example: "这是大家共同努力的研究成果。", exTranslation: "Đây là thành quả nghiên cứu của sự nỗ lực chung của mọi người." },
+            { id: 13, word: "结果", pinyin: "jiéguǒ", translation: "kết quả", example: "考试结果明天才会公布出来。", exTranslation: "Kết quả thi ngày mai mới được công bố." },
+            { id: 14, word: "后果", pinyin: "hòuguǒ", translation: "hậu quả", example: "你这样做会造成很严重的后果。", exTranslation: "Bạn làm như vậy sẽ gây ra hậu quả rất nghiêm trọng." },
+            { id: 15, word: "放", pinyin: "fàng", translation: "đặt, để", example: "把这些水果放在桌子上吧。", exTranslation: "Hãy đặt những trái cây này lên bàn đi." },
+            { id: 16, word: "冰箱", pinyin: "bīngxiāng", translation: "tủ lạnh", example: "冰箱里塞满了各种好吃的食物。", exTranslation: "Trong tủ lạnh nhét đầy các loại thức ăn ngon." },
+            { id: 17, word: "塞", pinyin: "sāi", translation: "nhét", example: "他把衣服都塞进了行李箱里。", exTranslation: "Anh ấy đã nhét tất cả quần áo vào trong vali." },
+            { id: 18, word: "塞进去", pinyin: "sāijìnqù", translation: "nhét vào", example: "虽然包很小，但他还是把书塞进去了。", exTranslation: "Mặc dù cặp rất nhỏ, nhưng anh ấy vẫn nhét sách vào được." },
+            { id: 19, word: "塞不进去", pinyin: "sāibùjìnqù", translation: "không nhét vào được", example: "冰箱满了，这些苹果塞不进去了。", exTranslation: "Tủ lạnh đầy rồi, những quả táo này không nhét vào được nữa." },
+            { id: 20, word: "满", pinyin: "mǎn", translation: "đầy", example: "杯子里的水已经倒满了。", exTranslation: "Nước trong cốc đã được rót đầy rồi." },
+            { id: 21, word: "看来", pinyin: "kànlái", translation: "xem ra, có vẻ như", example: "天阴了，看来马上就要下雨了。", exTranslation: "Trời âm u rồi, xem ra sắp mưa đến nơi." },
+            { id: 22, word: "该。。。了", pinyin: "gāi... le", translation: "nên... rồi, đến lúc... rồi", example: "时间不早了，我们该回家了。", exTranslation: "Thời gian không còn sớm nữa, chúng ta đến lúc phải về nhà rồi." },
+            { id: 23, word: "猜", pinyin: "cāi", translation: "đoán", example: "你猜猜我今天在机场遇到了谁？", exTranslation: "Bạn đoán xem hôm nay tôi đã gặp ai ở sân bay?" },
+            { id: 24, word: "动物", pinyin: "dòngwù", translation: "động vật", example: "熊猫是中国特有的珍稀动物。", exTranslation: "Gấu trúc là loài động vật quý hiếm đặc hữu của Trung Quốc." },
+            { id: 25, word: "圆", pinyin: "yuán", translation: "tròn", example: "妹妹的脸圆圆的，非常可爱。", exTranslation: "Khuôn mặt của em gái tròn xoe, vô cùng đáng yêu." },
+            { id: 26, word: "胖", pinyin: "pàng", translation: "béo, mập", example: "他最近吃得太多，长胖了不少。", exTranslation: "Gần đây anh ấy ăn quá nhiều nên đã béo lên không ít." },
+            { id: 27, word: "身上", pinyin: "shēnshang", translation: "trên thân, trên người", example: "熊猫身上只有黑白两种颜色。", exTranslation: "Trên người gấu trúc chỉ có hai loại màu sắc trắng và đen." },
+            { id: 28, word: "毛", pinyin: "máo", translation: "lông", example: "这只小狗的毛摸起来很舒服。", exTranslation: "Lông của chú cún này sờ vào rất dễ chịu." },
+            { id: 29, word: "耳朵", pinyin: "ěrduo", translation: "tai", example: "兔子的耳朵长长的。", exTranslation: "Đôi tai của con thỏ dài dài." },
+            { id: 30, word: "四肢", pinyin: "sìzhī", translation: "tứ chi, bốn chi", example: "猴子的四肢非常灵活。", exTranslation: "Tứ chi của con khỉ rất linh hoạt." },
+            { id: 31, word: "眼圈", pinyin: "yǎnquān", translation: "vành mắt, quầng mắt", example: "昨晚没睡好，她今天有黑眼圈。", exTranslation: "Tối qua ngủ không ngon, hôm nay cô ấy có quầng thâm mắt." },
+            { id: 32, word: "戴", pinyin: "dài", translation: "đeo, đội", example: "戴着眼镜的那位先生是我的老师。", exTranslation: "Vị tiên sinh đang đeo kính kia là thầy giáo của tôi." },
+            { id: 33, word: "戴帽子", pinyin: "dàimàozi", translation: "đội mũ", example: "外面很冷，出门记得戴帽子。", exTranslation: "Bên ngoài rất lạnh, ra khỏi nhà nhớ đội mũ nhé." },
+            { id: 34, word: "戴眼镜", pinyin: "dàiyǎnjìng", translation: "đeo kính", example: "他从小就开始戴眼镜了。", exTranslation: "Anh ấy từ nhỏ đã bắt đầu đeo kính rồi." },
+            { id: 35, word: "副", pinyin: "fù", translation: "chiếc, cặp (lượng từ cho kính)", example: "他新买了一副黑色的墨镜。", exTranslation: "Anh ấy mới mua một cặp kính râm màu đen." },
+            { id: 36, word: "墨镜", pinyin: "mòjìng", translation: "kính râm", example: "夏天出门的时候我经常戴墨镜。", exTranslation: "Mùa hè khi ra ngoài tôi thường xuyên đeo kính râm." },
+            { id: 37, word: "可爱", pinyin: "kě'ài", translation: "đáng yêu", example: "动物园里的小熊猫真是太可爱了。", exTranslation: "Gấu trúc nhỏ trong sở thú thật sự quá đáng yêu." },
+            { id: 38, word: "食物", pinyin: "shíwù", translation: "thức ăn, đồ ăn", example: "这些食物足够我们吃一个星期了。", exTranslation: "Những thức ăn này đủ cho chúng ta ăn trong một tuần rồi." },
+            { id: 39, word: "竹子", pinyin: "zhúzi", translation: "cây tre", example: "熊猫最喜欢的食物是竹子。", exTranslation: "Thức ăn yêu thích nhất của gấu trúc là tre." },
+            { id: 40, word: "出来", pinyin: "chūlái", translation: "ra đây, đi ra", example: "天气好了，很多人都出来散步。", exTranslation: "Thời tiết đẹp rồi, rất nhiều người đều đi ra ngoài tản bộ." },
+            { id: 41, word: "熊猫", pinyin: "xióngmāo", translation: "gấu trúc", example: "去四川旅游一定要看大熊猫。", exTranslation: "Đi du lịch Tứ Xuyên nhất định phải xem gấu trúc lớn." }
         ];
 
         // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 1
@@ -723,6 +770,15 @@
             { id: 3, vietnamese: "Trung Quốc có rất nhiều danh lam thắng cảnh hùng vĩ, ví dụ như sông Hoàng Hà.", chinese: "中国有很多壮观的名胜古迹，比如说黄河。", pinyin: "zhōngguó hǒu hěn duō zhuàngguān de míngshèng gǔjì, bǐrúshuō huánghé.", targetWord: "名胜古迹" },
             { id: 4, vietnamese: "Mỗi dân tộc, đặc biệt là các dân tộc thiểu số, đều có các món ăn đặc sắc khác nhau.", chinese: "每个民族，尤其是少数民族，都有自己独特的菜系。", pinyin: "měi gè mínzú, yóuqíshì shǎoshù mínzú, dōu yǒu zìjǐ dútè de càixì.", targetWord: "少数民族" },
             { id: 5, vietnamese: "Thời gian nghỉ hè rất ngắn, tôi muốn cùng bố mẹ đi tham quan các địa danh lịch sử.", chinese: "暑假的时间很短，我想跟父母一起去参观一些名胜古迹。", pinyin: "shǔjià de shíjiān hěn duǎn, wǒ xiǎng gēn fùmǔ yìqǐ qù cānguān yìxiē míngshèng gǔjì.", targetWord: "短" }
+        ];
+
+        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 4
+        const lesson4Sentences = [
+            { id: 1, vietnamese: "Tủ lạnh đã đầy rồi, những quả táo và quýt này thực sự không thể nhét vào được nữa.", chinese: "冰箱已经满了，这些苹果和橘子真的塞不进去了。", pinyin: "bīngxiāng yǐjīng mǎn le, zhèxiē píngguǒ hé júzi zhēnde sāibùjìnqù le.", targetWord: "塞不进去" },
+            { id: 2, vietnamese: "Hơn nữa, trong trái cây có rất nhiều vitamin, ăn nhiều một chút sẽ không bị ốm.", chinese: "再说，水果里有很多维生素，多吃一点就不会生病。", pinyin: "zàishuō, shuǐguǒ li yǒu hěn duō wéishēngsù, duō chī yìdiǎn jiù bú huì shēngbìng.", targetWord: "再说" },
+            { id: 3, vietnamese: "Xem ra chúng ta nên dọn dẹp tủ lạnh một chút rồi, nếu không đồ ăn sẽ hỏng mất.", chinese: "看来我们该清理一下冰箱了，不然食物会坏的。", pinyin: "kànlái wǒmen gāi qīnglǐ yíxià bīngxiāng le, bùrán shíwù huì huài de.", targetWord: "看来" },
+            { id: 4, vietnamese: "Động vật thích nhất của tôi là gấu trúc, trên người nó có lớp lông hai màu đen trắng, rất đáng yêu.", chinese: "我最喜欢的动物是熊猫，它身上有黑白两色的毛，非常可爱。", pinyin: "wǒ zuì xǐhuan de dòngwù shì xióngmāo, tā shēnshang yǒu hēibái liǎng sè de máo, fēicháng kě'ài.", targetWord: "身上" },
+            { id: 5, vietnamese: "Anh ấy đang đeo một cặp kính râm, trông quầng mắt giống hệt như gấu trúc vậy.", chinese: "他戴着一副墨镜，看起来眼圈跟熊猫一模一样。", pinyin: "tā dàizhe yí fù mòjìng, kàn qǐlái yǎnquān gēn xióngmāo yìmúyíyàng.", targetWord: "墨镜" }
         ];
 
         // Quản lý Trạng thái
@@ -871,9 +927,12 @@
             } else if (lessonKey === 'lesson2') {
                 vocabData = [...lesson2Vocab];
                 localSentences = [...lesson2Sentences];
-            } else {
+            } else if (lessonKey === 'lesson3') {
                 vocabData = [...lesson3Vocab];
                 localSentences = [...lesson3Sentences];
+            } else {
+                vocabData = [...lesson4Vocab];
+                localSentences = [...lesson4Sentences];
             }
 
             // Hủy xáo trộn nếu đang bật
@@ -895,7 +954,8 @@
             const lessonTitles = {
                 'lesson1': 'Bài 1: 飞机晚点了',
                 'lesson2': 'Bài 2: 他穿着一件黄色的衬衫',
-                'lesson3': 'Bài 3: 美国没有这么多自行车'
+                'lesson3': 'Bài 3: 美国没有这么多自行车',
+                'lesson4': 'Bài 4: 冰箱里塞满了水果'
             };
             document.getElementById('list-lesson-title').textContent = lessonTitles[lessonKey];
             document.getElementById('list-vocab-count').textContent = `${vocabData.length} Từ`;
@@ -911,6 +971,7 @@
             if (activeLesson === 'lesson1') vocabData = [...lesson1Vocab];
             else if (activeLesson === 'lesson2') vocabData = [...lesson2Vocab];
             else if (activeLesson === 'lesson3') vocabData = [...lesson3Vocab];
+            else if (activeLesson === 'lesson4') vocabData = [...lesson4Vocab];
             isShuffled = false;
         }
 
