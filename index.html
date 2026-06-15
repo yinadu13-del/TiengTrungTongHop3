@@ -87,6 +87,7 @@
                             <option value="lesson2">Bài 2: 他穿着一件黄色的衬衫</option>
                             <option value="lesson3">Bài 3: 美国没有这么多自行车</option>
                             <option value="lesson4">Bài 4: 冰箱里塞满了水果</option>
+                            <option value="lesson5">Bài 5: 比赛很精彩</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -209,6 +210,7 @@
                             <option value="lesson2">Bài 2: 他穿着一件黄色的衬衫</option>
                             <option value="lesson3">Bài 3: 美国没有这么多自行车</option>
                             <option value="lesson4">Bài 4: 冰箱里塞满了水果</option>
+                            <option value="lesson5">Bài 5: 比赛很精彩</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -709,7 +711,7 @@
             { id: 6, word: "报告", pinyin: "bàogào", translation: "báo cáo", example: "经理正在开会听取工作报告。", exTranslation: "Giám đốc đang họp để nghe báo cáo công việc." },
             { id: 7, word: "回报", pinyin: "huíbào", translation: "báo đáp, đền đáp", example: "父母的爱是不求任何回报的。", exTranslation: "Tình yêu của cha mẹ là không mong cầu bất kỳ sự báo đáp nào." },
             { id: 8, word: "生病", pinyin: "shēngbìng", translation: "bị ốm", example: "他今天生病了，不能去上学。", exTranslation: "Hôm nay anh ấy bị ốm rồi, không thể đi học được." },
-            { id: 9, word: "再说", pinyin: "zàishuō", translation: "hơn nữa, vả lại, nói sau; Dùng để biểu đạt ý ( đến lúc ) nên làm một việc gì đó rồi.", example: "外面在下雨，再说我也很累，就不去了。", exTranslation: "Bên ngoài đang mưa, hơn nữa tôi cũng rất mệt, nên sẽ không đi đâu." },
+            { id: 9, word: "再说", pinyin: "zàishuō", translation: "hơn nữa, vả lại, nói sau", example: "外面在下雨，再说我也很累，就不去了。", exTranslation: "Bên ngoài đang mưa, hơn nữa tôi cũng rất mệt, nên sẽ không đi đâu." },
             { id: 10, word: "酸", pinyin: "suān", translation: "chua", example: "这种水果味道很酸，可是富含维生素。", exTranslation: "Loại trái cây này có vị rất chua, nhưng lại giàu vitamin." },
             { id: 11, word: "维生素", pinyin: "wéishēngsù", translation: "vitamin", example: "橘子里含有很多维生素C。", exTranslation: "Trong quả quýt có chứa rất nhiều vitamin C." },
             { id: 12, word: "成果", pinyin: "chéngguǒ", translation: "thành quả", example: "这是大家共同努力的研究成果。", exTranslation: "Đây là thành quả nghiên cứu của sự nỗ lực chung của mọi người." },
@@ -722,7 +724,7 @@
             { id: 19, word: "塞不进去", pinyin: "sāibùjìnqù", translation: "không nhét vào được", example: "冰箱满了，这些苹果塞不进去了。", exTranslation: "Tủ lạnh đầy rồi, những quả táo này không nhét vào được nữa." },
             { id: 20, word: "满", pinyin: "mǎn", translation: "đầy", example: "杯子里的水已经倒满了。", exTranslation: "Nước trong cốc đã được rót đầy rồi." },
             { id: 21, word: "看来", pinyin: "kànlái", translation: "xem ra, có vẻ như", example: "天阴了，看来马上就要下雨了。", exTranslation: "Trời âm u rồi, xem ra sắp mưa đến nơi." },
-            { id: 22, word: "该...了", pinyin: "gāi...le", translation: "nên... rồi, đến lúc... rồi; Dùng để biểu đạt ý ( đến lúc ) nên làm một việc gì đó rồi.", example: "时间不早了，我们该回家了。", exTranslation: "Thời gian không còn sớm nữa, chúng ta đến lúc phải về nhà rồi." },
+            { id: 22, word: "该。。。了", pinyin: "gāi... le", translation: "nên... rồi, đến lúc... rồi", example: "时间不早了，我们该回家了。", exTranslation: "Thời gian không còn sớm nữa, chúng ta đến lúc phải về nhà rồi." },
             { id: 23, word: "猜", pinyin: "cāi", translation: "đoán", example: "你猜猜我今天在机场遇到了谁？", exTranslation: "Bạn đoán xem hôm nay tôi đã gặp ai ở sân bay?" },
             { id: 24, word: "动物", pinyin: "dòngwù", translation: "động vật", example: "熊猫是中国特有的珍稀动物。", exTranslation: "Gấu trúc là loài động vật quý hiếm đặc hữu của Trung Quốc." },
             { id: 25, word: "圆", pinyin: "yuán", translation: "tròn", example: "妹妹的脸圆圆的，非常可爱。", exTranslation: "Khuôn mặt của em gái tròn xoe, vô cùng đáng yêu." },
@@ -779,6 +781,60 @@
             { id: 3, vietnamese: "Xem ra chúng ta nên dọn dẹp tủ lạnh một chút rồi, nếu không đồ ăn sẽ hỏng mất.", chinese: "看来我们该清理一下冰箱了，不然食物会坏的。", pinyin: "kànlái wǒmen gāi qīnglǐ yíxià bīngxiāng le, bùrán shíwù huì huài de.", targetWord: "看来" },
             { id: 4, vietnamese: "Động vật thích nhất của tôi là gấu trúc, trên người nó có lớp lông hai màu đen trắng, rất đáng yêu.", chinese: "我最喜欢的动物是熊猫，它身上有黑白两色的毛，非常可爱。", pinyin: "wǒ zuì xǐhuan de dòngwù shì xióngmāo, tā shēnshang yǒu hēibái liǎng sè de máo, fēicháng kě'ài.", targetWord: "身上" },
             { id: 5, vietnamese: "Anh ấy đang đeo một cặp kính râm, trông quầng mắt giống hệt như gấu trúc vậy.", chinese: "他戴着一副墨镜，看起来眼圈跟熊猫一模一样。", pinyin: "tā dàizhe yí fù mòjìng, kàn qǐlái yǎnquān gēn xióngmāo yìmúyíyàng.", targetWord: "墨镜" }
+        ];
+
+        // Dữ liệu Bài học 5: 比赛很精彩
+        const lesson5Vocab = [
+            { id: 1, word: "精彩", pinyin: "jīngcǎi", translation: "xuất sắc, đặc sắc, tuyệt vời", example: "这场足球比赛非常精彩。", exTranslation: "Trận đấu bóng đá này vô cùng đặc sắc." },
+            { id: 2, word: "赢", pinyin: "yíng", translation: "thắng", example: "我们队终于赢了这场比赛。", exTranslation: "Đội chúng ta cuối cùng đã thắng trận đấu này." },
+            { id: 3, word: "输", pinyin: "shū", translation: "thua", example: "别难过，输赢是常有的事。", exTranslation: "Đừng buồn, thắng thua là chuyện thường tình." },
+            { id: 4, word: "比", pinyin: "bǐ", translation: "tỉ số, so với", example: "现在的比分是二比一。", exTranslation: "Tỉ số hiện tại là hai mốt." },
+            { id: 5, word: "平分", pinyin: "píngfēn", translation: "hòa (tỉ số), chia đều", example: "两队最后打成了平分。", exTranslation: "Hai đội cuối cùng đã hòa nhau." },
+            { id: 6, word: "掰手腕", pinyin: "bāi shǒuwàn", translation: "vật tay", example: "他们俩喜欢在下课后掰手腕。", exTranslation: "Hai người họ thích vật tay sau khi tan học." },
+            { id: 7, word: "踢", pinyin: "tī", translation: "đá", example: "哥哥周末经常去操场踢足球。", exTranslation: "Anh trai cuối tuần thường ra sân vận động đá bóng." },
+            { id: 8, word: "平", pinyin: "píng", translation: "hòa, bằng phẳng", example: "这场比赛两队踢平了。", exTranslation: "Trận đấu này hai đội đá hòa rồi." },
+            { id: 9, word: "怪", pinyin: "guài", translation: "trách, lạ", example: "这件事不能怪你，是我的错。", exTranslation: "Chuyện này không thể trách bạn, là lỗi của tôi." },
+            { id: 10, word: "浪费", pinyin: "làngfèi", translation: "lãng phí", example: "我们不应该浪费食物和水。", exTranslation: "Chúng ta không nên lãng phí thức ăn và nước." },
+            { id: 11, word: "射门", pinyin: "shèmén", translation: "sút bóng vào lưới, dứt điểm", example: "他在最后几分钟成功射门。", exTranslation: "Anh ấy đã sút bóng thành công vào lưới trong vài phút cuối." },
+            { id: 12, word: "要是", pinyin: "yàoshi", translation: "nếu như", example: "要是明天下雨，我们就不去爬山了。", exTranslation: "Nếu như ngày mai trời mưa, chúng ta sẽ không đi leo núi nữa." },
+            { id: 13, word: "进去", pinyin: "jìnqù", translation: "đi vào", example: "外面太冷了，我们赶快进去吧。", exTranslation: "Bên ngoài lạnh quá, chúng ta mau đi vào thôi." },
+            { id: 14, word: "胜利", pinyin: "shènglì", translation: "thắng lợi, chiến thắng", example: "只要努力，我们一定会取得胜利。", exTranslation: "Chỉ cần nỗ lực, chúng ta nhất định sẽ giành được chiến thắng." },
+            { id: 15, word: "一块儿", pinyin: "yíkuàir", translation: "cùng nhau", example: "周末我们一块儿去踢足球吧。", exTranslation: "Cuối tuần chúng ta cùng nhau đi đá bóng nhé." },
+            { id: 16, word: "洗澡", pinyin: "xǐzǎo", translation: "tắm", example: "运动完之后，洗个澡感觉很舒服。", exTranslation: "Sau khi vận động xong, tắm một cái cảm thấy rất thoải mái." },
+            { id: 17, word: "对手", pinyin: "duìshǒu", translation: "đối thủ", example: "在这次比赛中，我们遇到了很强的对手。", exTranslation: "Trong cuộc thi lần này, chúng tôi đã gặp phải một đối thủ rất mạnh." },
+            { id: 18, word: "数学", pinyin: "shùxué", translation: "toán học", example: "我的数学成绩一直名列前茅。", exTranslation: "Thành tích toán học của tôi luôn đứng đầu." },
+            { id: 19, word: "厉害", pinyin: "lìhai", translation: "lợi hại, giỏi", example: "那个足球运动员踢得真厉害！", exTranslation: "Cầu thủ bóng đá đó đá thật xuất sắc!" },
+            { id: 20, word: "加油", pinyin: "jiāyóu", translation: "cố lên", example: "比赛时，观众们都在为运动员加油。", exTranslation: "Khi thi đấu, khán giả đều đang cổ vũ cho các vận động viên." },
+            { id: 21, word: "响", pinyin: "xiǎng", translation: "vang, kêu", example: "突然，教室里的火灾警报器响了。", exTranslation: "Đột nhiên, chuông báo cháy trong phòng học vang lên." },
+            { id: 22, word: "电话响了", pinyin: "diànhuà xiǎng le", translation: "điện thoại reo rồi", example: "你的电话响了，快接吧。", exTranslation: "Điện thoại của bạn reo rồi, mau nghe đi." },
+            { id: 23, word: "手机响了", pinyin: "shǒujī xiǎng le", translation: "di động reo rồi", example: "他的手机响了，可能是老板打来的。", exTranslation: "Di động của anh ấy reo rồi, có thể là sếp gọi đến." },
+            { id: 24, word: "闹钟响了", pinyin: "nàozhōng xiǎng le", translation: "đồng hồ báo thức reo rồi", example: "早上六点，闹钟准时响了。", exTranslation: "Sáu giờ sáng, đồng hồ báo thức reo đúng giờ." },
+            { id: 25, word: "听见", pinyin: "tīngjiàn", translation: "nghe thấy", example: "你听见外面有人叫你的名字吗？", exTranslation: "Bạn có nghe thấy bên ngoài có người gọi tên bạn không?" },
+            { id: 26, word: "醒", pinyin: "xǐng", translation: "tỉnh dậy", example: "我今天早上七点才醒过来。", exTranslation: "Sáng nay bảy giờ tôi mới tỉnh dậy." },
+            { id: 27, word: "急忙", pinyin: "jímáng", translation: "vội vàng", example: "听到这个消息，他急忙跑了出去。", exTranslation: "Nghe thấy tin này, anh ấy vội vàng chạy ra ngoài." },
+            { id: 28, word: "爬", pinyin: "pá", translation: "bò, leo", example: "周末我们打算去郊外爬山。", exTranslation: "Cuối tuần chúng tôi dự định đi ngoại ô leo núi." },
+            { id: 29, word: "起来", pinyin: "qǐlái", translation: "dậy, đứng lên", example: "他每天早上六点就起来锻炼身体。", exTranslation: "Anh ấy mỗi sáng 6 giờ đã dậy rèn luyện sức khỏe." },
+            { id: 30, word: "推", pinyin: "tuī", translation: "đẩy", example: "请不要推，大家排队上车。", exTranslation: "Xin đừng đẩy, mọi người xếp hàng lên xe." },
+            { id: 31, word: "气", pinyin: "qì", translation: "tức giận, khí", example: "别气了，为这种小事生气不值得。", exTranslation: "Đừng tức giận nữa, vì chuyện nhỏ này mà tức giận thì không đáng." },
+            { id: 32, word: "打气", pinyin: "dǎqì", translation: "bơm hơi, cổ vũ", example: "比赛前，教练给大家打气。", exTranslation: "Trước trận đấu, huấn luyện viên cổ vũ tinh thần cho mọi người." },
+            { id: 33, word: "扔", pinyin: "rēng", translation: "ném, vứt", example: "请不要随地扔垃圾，保护环境。", exTranslation: "Xin đừng vứt rác bừa bãi, bảo vệ môi trường." },
+            { id: 34, word: "好不", pinyin: "hǎobù", translation: "rất, biết bao", example: "今天天气好不凉快。", exTranslation: "Thời tiết hôm nay thật mát mẻ biết bao." },
+            { id: 35, word: "好不容易", pinyin: "hǎobù róngyì", translation: "khó khăn lắm mới", example: "我好不容易才买到这本词典。", exTranslation: "Tôi khó khăn lắm mới mua được cuốn từ điển này." },
+            { id: 36, word: "好容易才", pinyin: "hǎo róngyì cái", translation: "khó khăn lắm mới", example: "我们在雨中走了好容易才到家。", exTranslation: "Chúng tôi đi dưới mưa khó khăn lắm mới về đến nhà." },
+            { id: 37, word: "上去", pinyin: "shàngqù", translation: "đi lên", example: "二楼在开会，你快上去吧。", exTranslation: "Tầng hai đang họp, bạn mau đi lên đó đi." },
+            { id: 38, word: "站", pinyin: "zhàn", translation: "đứng, bến", example: "下一站是火车站，请准备下车。", exTranslation: "Trạm tiếp theo là ga xe lửa, vui lòng chuẩn bị xuống xe." },
+            { id: 39, word: "下来", pinyin: "xiàlái", translation: "xuống đây", example: "上面太危险了，你快下来。", exTranslation: "Bên trên nguy hiểm quá, bạn mau xuống đây." },
+            { id: 40, word: "出租车", pinyin: "chūzūchē", translation: "xe taxi", example: "雨下得太大了，我们打出租车回去吧。", exTranslation: "Mưa to quá, chúng ta gọi taxi về thôi." },
+            { id: 41, word: "乌龟", pinyin: "wūguī", translation: "con rùa", example: "这只小乌龟爬得真慢。", exTranslation: "Chú rùa con này bò thật là chậm." }
+        ];
+
+        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 5
+        const lesson5Sentences = [
+            { id: 1, vietnamese: "Trận đấu bóng đá hôm nay vô cùng xuất sắc, hai đội cuối cùng đã hòa nhau.", chinese: "今天的足球比赛非常精彩，两队最后打成了平分。", pinyin: "jīntiān de zúqiú bǐsài fēicháng jīngcǎi, liǎng duì zuìhòu dǎ chéng le píngfēn.", targetWord: "精彩" },
+            { id: 2, vietnamese: "Nếu như ngày mai trời mưa, chúng ta sẽ không cùng nhau đi đá bóng nữa.", chinese: "要是明天下雨，我们就不一块儿去踢足球了。", pinyin: "yàoshi míngtiān xiàyǔ, wǒmen jiù bù yíkuàir qù tī zúqiú le.", targetWord: "要是" },
+            { id: 3, vietnamese: "Nghe thấy đồng hồ báo thức reo, anh ấy vội vàng thức dậy và gọi taxi đi làm.", chinese: "听见闹钟响了，他急忙醒来，打出租车去上班。", pinyin: "tīngjiàn nàozhōng xiǎng le, tā jímáng xǐng lái, dǎ chūzūchē qù shàngbān.", targetWord: "闹钟响了" },
+            { id: 4, vietnamese: "Đối thủ lần này rất lợi hại, chúng tôi khó khăn lắm mới giành được chiến thắng.", chinese: "这次的对手很厉害，我们好不容易才取得胜利。", pinyin: "zhè cì de duìshǒu hěn lìhai, wǒmen hǎobù róngyì cái qǔdé shènglì.", targetWord: "胜利" },
+            { id: 5, vietnamese: "Đừng lãng phí thời gian nữa, mọi người mau cổ vũ cho anh ấy đi!", chinese: "别浪费时间了，大家快给他加油吧！", pinyin: "bié làngfèi shíjiān le, dàjiā kuài gěi tā jiāyóu ba!", targetWord: "浪费" }
         ];
 
         // Quản lý Trạng thái
@@ -930,9 +986,12 @@
             } else if (lessonKey === 'lesson3') {
                 vocabData = [...lesson3Vocab];
                 localSentences = [...lesson3Sentences];
-            } else {
+            } else if (lessonKey === 'lesson4') {
                 vocabData = [...lesson4Vocab];
                 localSentences = [...lesson4Sentences];
+            } else {
+                vocabData = [...lesson5Vocab];
+                localSentences = [...lesson5Sentences];
             }
 
             // Hủy xáo trộn nếu đang bật
@@ -955,7 +1014,8 @@
                 'lesson1': 'Bài 1: 飞机晚点了',
                 'lesson2': 'Bài 2: 他穿着一件黄色的衬衫',
                 'lesson3': 'Bài 3: 美国没有这么多自行车',
-                'lesson4': 'Bài 4: 冰箱里塞满了水果'
+                'lesson4': 'Bài 4: 冰箱里塞满了水果',
+                'lesson5': 'Bài 5: 比赛很精彩'
             };
             document.getElementById('list-lesson-title').textContent = lessonTitles[lessonKey];
             document.getElementById('list-vocab-count').textContent = `${vocabData.length} Từ`;
@@ -972,6 +1032,7 @@
             else if (activeLesson === 'lesson2') vocabData = [...lesson2Vocab];
             else if (activeLesson === 'lesson3') vocabData = [...lesson3Vocab];
             else if (activeLesson === 'lesson4') vocabData = [...lesson4Vocab];
+            else if (activeLesson === 'lesson5') vocabData = [...lesson5Vocab];
             isShuffled = false;
         }
 
