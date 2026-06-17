@@ -88,6 +88,7 @@
                             <option value="lesson3">Bài 3: 美国没有这么多自行车</option>
                             <option value="lesson4">Bài 4: 冰箱里塞满了水果</option>
                             <option value="lesson5">Bài 5: 比赛很精彩</option>
+                            <option value="lesson6">Bài 6: 我进不去</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -211,6 +212,7 @@
                             <option value="lesson3">Bài 3: 美国没有这么多自行车</option>
                             <option value="lesson4">Bài 4: 冰箱里塞满了水果</option>
                             <option value="lesson5">Bài 5: 比赛很精彩</option>
+                            <option value="lesson6">Bài 6: 我进不去</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -837,6 +839,54 @@
             { id: 5, vietnamese: "Đừng lãng phí thời gian nữa, mọi người mau cổ vũ cho anh ấy đi!", chinese: "别浪费时间了，大家快给他加油吧！", pinyin: "bié làngfèi shíjiān le, dàjiā kuài gěi tā jiāyóu ba!", targetWord: "浪费" }
         ];
 
+        // Dữ liệu Bài học 6: 我进不去
+        const lesson6Vocab = [
+            { id: 1, word: "腿", pinyin: "tuǐ", translation: "chân", example: "他的腿受伤了，现在还不能走路。", exTranslation: "Chân anh ấy bị thương, bây giờ vẫn chưa thể đi lại." },
+            { id: 2, word: "拐", pinyin: "guǎi", translation: "rẽ, ngoặt, cà nhắc", example: "前面路口往右拐，就到医院了。", exTranslation: "Đến ngã tư phía trước rẽ phải là đến bệnh viện rồi." },
+            { id: 3, word: "因为", pinyin: "yīnwèi", translation: "bởi vì", example: "因为今天下雨，所以我没去散步。", exTranslation: "Bởi vì hôm nay trời mưa nên tôi không đi dạo." },
+            { id: 4, word: "来不及", pinyin: "láibují", translation: "không kịp", example: "快点走，不然就来不及了。", exTranslation: "Đi mau lên, nếu không sẽ không kịp mất." },
+            { id: 5, word: "窗户", pinyin: "chuānghu", translation: "cửa sổ", example: "房间里太热了，请把窗户打开。", exTranslation: "Trong phòng nóng quá, xin hãy mở cửa sổ ra." },
+            { id: 6, word: "层", pinyin: "céng", translation: "tầng", example: "我住在五层，每天都要爬楼梯。", exTranslation: "Tôi sống ở tầng năm, mỗi ngày đều phải leo cầu thang." },
+            { id: 7, word: "隔壁", pinyin: "gébì", translation: "nhà bên cạnh, sát vách", example: "隔壁的房间里住着一位老奶奶。", exTranslation: "Trong căn phòng sát vách có một bà lão đang sinh sống." },
+            { id: 8, word: "邻居", pinyin: "línjū", translation: "hàng xóm", example: "我们的邻居非常热情友好。", exTranslation: "Hàng xóm của chúng tôi vô cùng nhiệt tình thân thiện." },
+            { id: 9, word: "水房", pinyin: "shuǐfáng", translation: "phòng nước", example: "同学们每天早上去水房打热水。", exTranslation: "Mỗi sáng các bạn học sinh đều đến phòng lấy nước để lấy nước nóng." },
+            { id: 10, word: "危险", pinyin: "wēixiǎn", translation: "nguy hiểm", example: "在马路上踢足球是很危险的。", exTranslation: "Đá bóng trên đường phố là rất nguy hiểm." },
+            { id: 11, word: "往", pinyin: "wǎng", translation: "hướng về, đi tới", example: "你一直往前走，就能看到地铁站。", exTranslation: "Bạn cứ đi thẳng về phía trước là có thể nhìn thấy trạm tàu điện ngầm." },
+            { id: 12, word: "跳", pinyin: "tiào", translation: "nhảy", example: "小狗高兴地跳了起来。", exTranslation: "Chú cún vui vẻ nhảy cẫng lên." },
+            { id: 13, word: "一下子", pinyin: "yíxiàzi", translation: "chốc lát, đột nhiên", example: "天气一下子变得很冷。", exTranslation: "Thời tiết đột nhiên trở nên rất lạnh." },
+            { id: 14, word: "摔", pinyin: "shuāi", translation: "ngã, rơi", example: "那个孩子不小心摔了一跤。", exTranslation: "Đứa trẻ đó không cẩn thận bị ngã một cú." },
+            { id: 15, word: "变成", pinyin: "biànchéng", translation: "biến thành", example: "秋天到了，树叶变成了黄色。", exTranslation: "Mùa thu đến rồi, lá cây đã biến thành màu vàng." },
+            { id: 16, word: "近视", pinyin: "jìnshì", translation: "cận thị", example: "他近视很严重，必须戴眼镜。", exTranslation: "Anh ấy bị cận thị rất nặng, bắt buộc phải đeo kính." },
+            { id: 17, word: "清楚", pinyin: "qīngchu", translation: "rõ ràng", example: "我没听清楚你刚才说的话。", exTranslation: "Tôi chưa nghe rõ lời bạn vừa nói." },
+            { id: 18, word: "脱", pinyin: "tuō", translation: "cởi", example: "进房间后，他把外套脱了下来。", exTranslation: "Sau khi vào phòng, anh ấy đã cởi áo khoác ra." },
+            { id: 19, word: "挂", pinyin: "guà", translation: "treo", example: "墙上挂着一幅美丽的山水画。", exTranslation: "Trên tường có treo một bức tranh sơn thủy tuyệt đẹp." },
+            { id: 20, word: "墙", pinyin: "qiáng", translation: "tường", example: "这面墙被刷成了白色。", exTranslation: "Bức tường này đã được sơn thành màu trắng." },
+            { id: 21, word: "掉", pinyin: "diào", translation: "rơi, rớt", example: "我的手机掉在地上摔坏了。", exTranslation: "Điện thoại của tôi rơi xuống đất và bị hỏng rồi." },
+            { id: 22, word: "钉子", pinyin: "dīngzi", translation: "cái đinh", example: "他用锤子把钉子钉在墙上。", exTranslation: "Anh ấy dùng búa đóng cái đinh lên tường." },
+            { id: 23, word: "只", pinyin: "zhī", translation: "con (lượng từ)", example: "树上有一只可爱的小鸟。", exTranslation: "Trên cây có một chú chim nhỏ đáng yêu." },
+            { id: 24, word: "苍蝇", pinyin: "cāngying", translation: "con ruồi", example: "房间里有一只苍蝇在飞来飞去。", exTranslation: "Trong phòng có một con ruồi đang bay qua bay lại." },
+            { id: 25, word: "立刻", pinyin: "lìkè", translation: "lập tức", example: "听到警报声，大家立刻跑了出去。", exTranslation: "Nghe thấy tiếng còi báo động, mọi người lập tức chạy ra ngoài." },
+            { id: 26, word: "飞", pinyin: "fēi", translation: "bay", example: "鸟儿在蓝蓝的天空中自由地飞翔。", exTranslation: "Những chú chim đang tự do bay lượn trên bầu trời xanh." },
+            { id: 27, word: "蚊子", pinyin: "wénzi", translation: "con muỗi", example: "夏天到了，晚上的蚊子特别多。", exTranslation: "Mùa hè đến rồi, buổi tối có đặc biệt nhiều muỗi." },
+            { id: 28, word: "着", pinyin: "zhe", translation: "đang", example: "门开着，你可以直接进去。", exTranslation: "Cửa đang mở, bạn có thể đi thẳng vào trong." },
+            { id: 29, word: "落", pinyin: "luò", translation: "rơi, đậu", example: "一片树叶落在了我的肩膀上。", exTranslation: "Một chiếc lá rơi xuống vai tôi." },
+            { id: 30, word: "轻", pinyin: "qīng", translation: "nhẹ", example: "这个箱子很轻，我一个人能搬。", exTranslation: "Cái thùng này rất nhẹ, một mình tôi có thể bê được." },
+            { id: 31, word: "巴掌", pinyin: "bāzhang", translation: "bàn tay, cái tát", example: "妈妈气得打了他一巴掌。", exTranslation: "Mẹ tức giận đánh cậu ta một bạt tai." },
+            { id: 32, word: "下去", pinyin: "xiàqù", translation: "xuống (bổ ngữ)", example: "会议快结束了，请继续说下去。", exTranslation: "Cuộc họp sắp kết thúc rồi, xin hãy tiếp tục nói đi." },
+            { id: 33, word: "突然", pinyin: "tūrán", translation: "đột nhiên", example: "外面突然下起了大雨。", exTranslation: "Bên ngoài đột nhiên đổ mưa lớn." },
+            { id: 34, word: "忽然", pinyin: "hūrán", translation: "bỗng nhiên", example: "我忽然想起今天下午还有个会。", exTranslation: "Tôi chợt nhớ ra chiều nay vẫn còn một cuộc họp." },
+            { id: 35, word: "感到", pinyin: "gǎndào", translation: "cảm thấy", example: "看到他取得好成绩，我感到很骄傲。", exTranslation: "Thấy anh ấy đạt thành tích tốt, tôi cảm thấy rất tự hào." }
+        ];
+
+        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 6
+        const lesson6Sentences = [
+            { id: 1, vietnamese: "Bởi vì tôi không mang chìa khóa nên đột nhiên không thể vào nhà được.", chinese: "因为没带钥匙，我突然进不去了。", pinyin: "yīnwèi méi dài yàoshi, wǒ tūrán jìn bú qù le.", targetWord: "突然" },
+            { id: 2, vietnamese: "Anh ấy không cẩn thận bị ngã một cú, chân đi lại có chút cà nhắc.", chinese: "他不小心摔了一跤，走路腿有点拐。", pinyin: "tā bù xiǎoxīn shuāi le yì jiāo, zǒulù tuǐ yǒudiǎn guǎi.", targetWord: "摔" },
+            { id: 3, vietnamese: "Cửa sổ phòng tôi đang mở, một con muỗi bay vào trong.", chinese: "我房间的窗户开着，有一只蚊子飞进来了。", pinyin: "wǒ fángjiān de chuānghu kāizhe, yǒu yì zhī wénzi fēi jìnlái le.", targetWord: "窗户" },
+            { id: 4, vietnamese: "Tường nhà hàng xóm treo một bức tranh, nhìn không rõ lắm.", chinese: "邻居家的墙上挂着一幅画，看不清楚。", pinyin: "línjū jiā de qiáng shang guàzhe yì fú huà, kàn bù qīngchu.", targetWord: "墙" },
+            { id: 5, vietnamese: "Đã trễ thế này rồi, bây giờ đi ra sân bay khẳng định là không kịp nữa.", chinese: "都这么晚了，现在去机场肯定来不及了。", pinyin: "dōu zhème wǎn le, xiànzài qù jīchǎng kěndìng láibují le.", targetWord: "来不及" }
+        ];
+
         // Quản lý Trạng thái
         let activeLesson = 'lesson1'; // Mặc định Bài 1
         let vocabData = [...lesson1Vocab]; // Bộ dữ liệu đang kích hoạt
@@ -989,9 +1039,12 @@
             } else if (lessonKey === 'lesson4') {
                 vocabData = [...lesson4Vocab];
                 localSentences = [...lesson4Sentences];
-            } else {
+            } else if (lessonKey === 'lesson5') {
                 vocabData = [...lesson5Vocab];
                 localSentences = [...lesson5Sentences];
+            } else {
+                vocabData = [...lesson6Vocab];
+                localSentences = [...lesson6Sentences];
             }
 
             // Hủy xáo trộn nếu đang bật
@@ -1015,7 +1068,8 @@
                 'lesson2': 'Bài 2: 他穿着一件黄色的衬衫',
                 'lesson3': 'Bài 3: 美国没有这么多自行车',
                 'lesson4': 'Bài 4: 冰箱里塞满了水果',
-                'lesson5': 'Bài 5: 比赛很精彩'
+                'lesson5': 'Bài 5: 比赛很精彩',
+                'lesson6': 'Bài 6: 我进不去'
             };
             document.getElementById('list-lesson-title').textContent = lessonTitles[lessonKey];
             document.getElementById('list-vocab-count').textContent = `${vocabData.length} Từ`;
@@ -1033,6 +1087,7 @@
             else if (activeLesson === 'lesson3') vocabData = [...lesson3Vocab];
             else if (activeLesson === 'lesson4') vocabData = [...lesson4Vocab];
             else if (activeLesson === 'lesson5') vocabData = [...lesson5Vocab];
+            else if (activeLesson === 'lesson6') vocabData = [...lesson6Vocab];
             isShuffled = false;
         }
 
