@@ -89,11 +89,28 @@
                             <option value="lesson4">Bài 4: 冰箱里塞满了水果</option>
                             <option value="lesson5">Bài 5: 比赛很精彩</option>
                             <option value="lesson6">Bài 6: 我进不去</option>
+                            <option value="lesson7">Bài 7: 西红柿炒鸡蛋</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Thống kê tổng quan toàn hệ thống (MỚI) -->
+            <div class="p-4 border-b border-slate-100 bg-indigo-50/40">
+                <h3 class="text-[10px] font-extrabold text-indigo-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-chart-pie mr-1"></i> Thống kê toàn khóa</h3>
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-slate-600 font-medium">Tổng từ vựng:</span>
+                    <span id="global-total-vocab" class="font-bold text-indigo-700">0</span>
+                </div>
+                <div class="flex justify-between items-center text-xs mt-1">
+                    <span class="text-slate-600 font-medium">Đã thuộc (tất cả):</span>
+                    <span id="global-total-learned" class="font-bold text-emerald-600">0</span>
+                </div>
+                <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden mt-2.5 shadow-inner">
+                    <div id="global-progress-bar" class="h-full bg-gradient-to-r from-indigo-500 to-emerald-500 rounded-full transition-all duration-500" style="width: 0%"></div>
                 </div>
             </div>
 
@@ -213,6 +230,7 @@
                             <option value="lesson4">Bài 4: 冰箱里塞满了水果</option>
                             <option value="lesson5">Bài 5: 比赛很精彩</option>
                             <option value="lesson6">Bài 6: 我进不去</option>
+                            <option value="lesson7">Bài 7: 西红柿炒鸡蛋</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -492,6 +510,21 @@
 
                 <!-- CHẾ ĐỘ 5: DANH SÁCH TRA CỨU TỪ VỰNG -->
                 <div id="view-list" class="hidden w-full max-w-sm md:max-w-4xl mx-auto space-y-4">
+                    
+                    <!-- Bảng thống kê toàn khóa (MỚI) cho Mobile/List View -->
+                    <div class="grid grid-cols-2 gap-3 md:gap-4">
+                        <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm">
+                            <i class="fa-solid fa-layer-group text-indigo-300 text-lg mb-1.5"></i>
+                            <span class="text-[10px] font-bold text-indigo-500 uppercase tracking-wider text-center">Tổng hệ thống</span>
+                            <span id="stat-total-vocab" class="text-2xl md:text-3xl font-black text-indigo-700 mt-0.5">0</span>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm">
+                            <i class="fa-solid fa-check-double text-emerald-400 text-lg mb-1.5"></i>
+                            <span class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider text-center">Đã thuộc (Tất cả)</span>
+                            <span id="stat-total-learned" class="text-2xl md:text-3xl font-black text-emerald-700 mt-0.5">0</span>
+                        </div>
+                    </div>
+
                     <div class="bg-white rounded-2xl p-4 shadow-md border border-slate-100 space-y-3">
                         <div class="flex justify-between items-center border-b border-slate-100 pb-2.5">
                             <div>
@@ -887,6 +920,50 @@
             { id: 5, vietnamese: "Đã trễ thế này rồi, bây giờ đi ra sân bay khẳng định là không kịp nữa.", chinese: "都这么晚了，现在去机场肯定来不及了。", pinyin: "dōu zhème wǎn le, xiànzài qù jīchǎng kěndìng láibují le.", targetWord: "来不及" }
         ];
 
+        // Dữ liệu Bài học 7: 西红柿炒鸡蛋
+        const lesson7Vocab = [
+            { id: 1, word: "教", pinyin: "jiāo", translation: "dạy", example: "老师教我们汉语。", exTranslation: "Thầy giáo dạy chúng tôi tiếng Trung." },
+            { id: 2, word: "家常菜", pinyin: "jiāchángcài", translation: "món ăn gia đình", example: "西红柿炒鸡蛋是一道常见的家常菜。", exTranslation: "Cà chua xào trứng là một món ăn gia đình thường gặp." },
+            { id: 3, word: "西红柿", pinyin: "xīhóngshì", translation: "cà chua", example: "这个西红柿又红又大。", exTranslation: "Quả cà chua này vừa đỏ vừa to." },
+            { id: 4, word: "鸡蛋", pinyin: "jīdàn", translation: "trứng gà", example: "每天早上吃一个鸡蛋对身体好。", exTranslation: "Mỗi sáng ăn một quả trứng gà rất tốt cho sức khỏe." },
+            { id: 5, word: "点着", pinyin: "diǎnzháo", translation: "châm lửa, bắt lửa", example: "他把火点着了。", exTranslation: "Anh ấy đã châm lửa lên rồi." },
+            { id: 6, word: "锅", pinyin: "guō", translation: "nồi, chảo", example: "锅里的水已经开了。", exTranslation: "Nước trong nồi đã sôi rồi." },
+            { id: 7, word: "开锅", pinyin: "kāiguō", translation: "sôi (nước trong nồi)", example: "水开锅了，可以下饺子了。", exTranslation: "Nước sôi rồi, có thể thả sủi cảo vào rồi." },
+            { id: 8, word: "原料", pinyin: "yuánliào", translation: "nguyên liệu", example: "做这道菜需要什么原料？", exTranslation: "Làm món này cần những nguyên liệu gì?" },
+            { id: 9, word: "油", pinyin: "yóu", translation: "dầu", example: "锅里多放点油，菜会更好吃。", exTranslation: "Cho thêm chút dầu vào chảo, thức ăn sẽ ngon hơn." },
+            { id: 10, word: "白糖", pinyin: "báitáng", translation: "đường trắng", example: "在汤里加一点白糖可以提鲜。", exTranslation: "Thêm chút đường trắng vào canh có thể làm tăng vị tươi ngon." },
+            { id: 11, word: "盐", pinyin: "yán", translation: "muối", example: "菜里盐放多了，有点咸。", exTranslation: "Trong thức ăn cho nhiều muối quá, hơi mặn." },
+            { id: 12, word: "淀粉", pinyin: "diànfěn", translation: "tinh bột, bột năng", example: "加一点淀粉，汤会更浓。", exTranslation: "Thêm một chút bột năng, canh sẽ đặc hơn." },
+            { id: 13, word: "克", pinyin: "kè", translation: "gram", example: "这包糖重五百克。", exTranslation: "Gói đường này nặng 500 gram." },
+            { id: 14, word: "加", pinyin: "jiā", translation: "thêm", example: "咖啡里需要加糖吗？", exTranslation: "Trong cà phê có cần thêm đường không?" },
+            { id: 15, word: "做法", pinyin: "zuòfǎ", translation: "cách làm", example: "你能教我这道菜的做法吗？", exTranslation: "Bạn có thể dạy tôi cách làm món này không?" },
+            { id: 16, word: "搅拌", pinyin: "jiǎobàn", translation: "khuấy, đánh", example: "把鸡蛋搅拌均匀。", exTranslation: "Đánh trứng gà cho đều." },
+            { id: 17, word: "切", pinyin: "qiē", translation: "cắt, thái", example: "请把西红柿切成小块。", exTranslation: "Xin hãy thái cà chua thành những miếng nhỏ." },
+            { id: 18, word: "块儿", pinyin: "kuàir", translation: "miếng, cục", example: "这块儿西瓜很甜。", exTranslation: "Miếng dưa hấu này rất ngọt." },
+            { id: 19, word: "筷子", pinyin: "kuàizi", translation: "đũa", example: "中国人吃饭喜欢用筷子。", exTranslation: "Người Trung Quốc thích dùng đũa khi ăn cơm." },
+            { id: 20, word: "均匀", pinyin: "jūnyún", translation: "đều", example: "把盐撒得均匀一点。", exTranslation: "Rắc muối cho đều một chút." },
+            { id: 21, word: "营养", pinyin: "yíngyǎng", translation: "dinh dưỡng", example: "蔬菜和水果都有丰富的营养。", exTranslation: "Rau củ và trái cây đều có dinh dưỡng phong phú." },
+            { id: 22, word: "尝", pinyin: "cháng", translation: "nếm", example: "你尝尝这道菜咸不咸。", exTranslation: "Bạn nếm thử xem món này có mặn không." },
+            { id: 23, word: "闻", pinyin: "wén", translation: "ngửi", example: "这朵花闻起来很香。", exTranslation: "Bông hoa này ngửi rất thơm." },
+            { id: 24, word: "香", pinyin: "xiāng", translation: "thơm", example: "妈妈做的饭真香啊！", exTranslation: "Cơm mẹ nấu thật thơm quá!" },
+            { id: 25, word: "咸", pinyin: "xián", translation: "mặn", example: "这个汤太咸了，我喝不下。", exTranslation: "Món canh này mặn quá, tôi uống không nổi." },
+            { id: 26, word: "可口", pinyin: "kěkǒu", translation: "ngon miệng", example: "这家餐厅的饭菜非常可口。", exTranslation: "Đồ ăn của nhà hàng này vô cùng ngon miệng." },
+            { id: 27, word: "特点", pinyin: "tèdiǎn", translation: "đặc điểm", example: "这道菜的特点是又酸又甜。", exTranslation: "Đặc điểm của món này là vừa chua vừa ngọt." },
+            { id: 28, word: "丰富", pinyin: "fēngfù", translation: "phong phú", example: "这里的晚餐非常丰富。", exTranslation: "Bữa tối ở đây rất phong phú." },
+            { id: 29, word: "熟", pinyin: "shú", translation: "chín", example: "肉还没熟，要再煮一会儿。", exTranslation: "Thịt vẫn chưa chín, phải nấu thêm một lát nữa." },
+            { id: 30, word: "迅速", pinyin: "xùnsù", translation: "nhanh chóng", example: "他迅速地把作业写完了。", exTranslation: "Cậu ấy nhanh chóng làm xong bài tập." },
+            { id: 31, word: "最后", pinyin: "zuìhòu", translation: "cuối cùng", example: "最后，我们加一点香菜。", exTranslation: "Cuối cùng, chúng ta cho thêm một chút rau mùi." }
+        ];
+
+        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 7
+        const lesson7Sentences = [
+            { id: 1, vietnamese: "Cà chua xào trứng gà là một món ăn gia đình rất ngon miệng, hơn nữa dinh dưỡng cũng vô cùng phong phú.", chinese: "西红柿炒鸡蛋是一道很可口的家常菜，而且营养也十分丰富。", pinyin: "xīhóngshì chǎo jīdàn shì yí dào hěn kěkǒu de jiāchángcài, érqiě yíngyǎng yě shífēn fēngfù.", targetWord: "营养" },
+            { id: 2, vietnamese: "Cách làm của cô ấy là đầu tiên cắt cà chua thành từng miếng, sau đó dùng đũa đánh trứng gà cho đều.", chinese: "她的做法是先将西红柿切成块儿，然后用筷子把鸡蛋搅拌均匀。", pinyin: "tā de zuòfǎ shì xiān jiāng xīhóngshì qiē chéng kuàir, ránhòu yòng kuàizi bǎ jīdàn jiǎobàn jūnyún.", targetWord: "搅拌" },
+            { id: 3, vietnamese: "Đợi sau khi dầu nóng, chúng ta nhanh chóng cho trứng gà vào nồi.", chinese: "等油热了之后，我们迅速地把鸡蛋放进锅里。", pinyin: "děng yóu rè le zhīhòu, wǒmen xùnsù de bǎ jīdàn fàng jìn guō lǐ.", targetWord: "迅速" },
+            { id: 4, vietnamese: "Bạn nếm thử xem món ăn này có mặn hay không, nếu chưa đủ thì thêm vài gram muối.", chinese: "你尝尝这道菜咸不咸，如果不够再加几克盐。", pinyin: "nǐ chángchang zhè dào cài xián bù xián, rúguǒ bú gòu zài jiā jǐ kè yán.", targetWord: "尝" },
+            { id: 5, vietnamese: "Đặc điểm của món ăn này là ngửi thì thấy rất thơm, khi trứng chín là có thể cho ra đĩa.", chinese: "这道菜的特点是闻起来很香，鸡蛋熟了就可以出锅了。", pinyin: "zhè dào cài de tèdiǎn shì wén qǐlái hěn xiāng, jīdàn shú le jiù kěyǐ chū guō le.", targetWord: "特点" }
+        ];
+
         // Quản lý Trạng thái
         let activeLesson = 'lesson1'; // Mặc định Bài 1
         let vocabData = [...lesson1Vocab]; // Bộ dữ liệu đang kích hoạt
@@ -1042,9 +1119,12 @@
             } else if (lessonKey === 'lesson5') {
                 vocabData = [...lesson5Vocab];
                 localSentences = [...lesson5Sentences];
-            } else {
+            } else if (lessonKey === 'lesson6') {
                 vocabData = [...lesson6Vocab];
                 localSentences = [...lesson6Sentences];
+            } else {
+                vocabData = [...lesson7Vocab];
+                localSentences = [...lesson7Sentences];
             }
 
             // Hủy xáo trộn nếu đang bật
@@ -1069,7 +1149,8 @@
                 'lesson3': 'Bài 3: 美国没有这么多自行车',
                 'lesson4': 'Bài 4: 冰箱里塞满了水果',
                 'lesson5': 'Bài 5: 比赛很精彩',
-                'lesson6': 'Bài 6: 我进不去'
+                'lesson6': 'Bài 6: 我进不去',
+                'lesson7': 'Bài 7: 西红柿炒鸡蛋'
             };
             document.getElementById('list-lesson-title').textContent = lessonTitles[lessonKey];
             document.getElementById('list-vocab-count').textContent = `${vocabData.length} Từ`;
@@ -1088,6 +1169,7 @@
             else if (activeLesson === 'lesson4') vocabData = [...lesson4Vocab];
             else if (activeLesson === 'lesson5') vocabData = [...lesson5Vocab];
             else if (activeLesson === 'lesson6') vocabData = [...lesson6Vocab];
+            else if (activeLesson === 'lesson7') vocabData = [...lesson7Vocab];
             isShuffled = false;
         }
 
@@ -1291,6 +1373,7 @@
             localStorage.setItem('hsk4_learned_words_' + activeLesson, JSON.stringify(learnedList));
             updateFlashcard();
             updateProgress();
+            updateGlobalStats();
         }
 
         function updateProgress() {
@@ -1314,8 +1397,40 @@
                 learnedList = [];
                 localStorage.removeItem('hsk4_learned_words_' + activeLesson);
                 updateProgress();
+                updateGlobalStats();
                 if (currentTab === 'flashcards') updateFlashcard();
                 showToast("Đã thiết lập lại tiến trình học của bài này.", "success");
+            }
+        }
+
+        // Cập nhật thống kê toàn hệ thống (tất cả các bài)
+        function updateGlobalStats() {
+            const allVocabArrays = [lesson1Vocab, lesson2Vocab, lesson3Vocab, lesson4Vocab, lesson5Vocab, lesson6Vocab, lesson7Vocab];
+            let globalTotal = 0;
+            allVocabArrays.forEach(arr => globalTotal += arr.length);
+
+            let globalLearned = 0;
+            for (let i = 1; i <= 7; i++) {
+                const learned = JSON.parse(localStorage.getItem('hsk4_learned_words_lesson' + i)) || [];
+                globalLearned += learned.length;
+            }
+
+            // Cập nhật giao diện bên Danh sách
+            const statTotalEl = document.getElementById('stat-total-vocab');
+            const statLearnedEl = document.getElementById('stat-total-learned');
+            if (statTotalEl) statTotalEl.textContent = globalTotal;
+            if (statLearnedEl) statLearnedEl.textContent = globalLearned;
+            
+            // Cập nhật giao diện bên Desktop Sidebar
+            const desktopGlobalTotal = document.getElementById('global-total-vocab');
+            const desktopGlobalLearned = document.getElementById('global-total-learned');
+            const desktopGlobalProgress = document.getElementById('global-progress-bar');
+            
+            if (desktopGlobalTotal) desktopGlobalTotal.textContent = globalTotal;
+            if (desktopGlobalLearned) desktopGlobalLearned.textContent = globalLearned;
+            if (desktopGlobalProgress) {
+                const percent = globalTotal > 0 ? Math.round((globalLearned / globalTotal) * 100) : 0;
+                desktopGlobalProgress.style.width = `${percent}%`;
             }
         }
 
@@ -1722,6 +1837,7 @@
             generateVocabTable();
             updateFlashcard();
             updateProgress();
+            updateGlobalStats();
             setupSwipeGestures();
             
             if ('speechSynthesis' in window) {
