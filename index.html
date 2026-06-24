@@ -90,6 +90,7 @@
                             <option value="lesson5">Bài 5: 比赛很精彩</option>
                             <option value="lesson6">Bài 6: 我进不去</option>
                             <option value="lesson7">Bài 7: 西红柿炒鸡蛋</option>
+                            <option value="lesson8">Bài 8: 一封信</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -231,6 +232,7 @@
                             <option value="lesson5">Bài 5: 比赛很精彩</option>
                             <option value="lesson6">Bài 6: 我进不去</option>
                             <option value="lesson7">Bài 7: 西红柿炒鸡蛋</option>
+                            <option value="lesson8">Bài 8: 一封信</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -781,43 +783,6 @@
             { id: 41, word: "熊猫", pinyin: "xióngmāo", translation: "gấu trúc", example: "去四川旅游一定要看大熊猫。", exTranslation: "Đi du lịch Tứ Xuyên nhất định phải xem gấu trúc lớn." }
         ];
 
-        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 1
-        const lesson1Sentences = [
-            { id: 1, vietnamese: "Chuyến bay hôm nay bị trễ giờ, vì thế cha mẹ phải đợi ở sân bay lâu hơn.", chinese: "今天的航班晚点了，因此父母要在机场等更久。", pinyin: "jīntiān de hángbān wǎndiǎn le, yīncǐ fùmǔ yào zài jīchǎng děng gèng jiǔ.", targetWord: "航班" },
-            { id: 2, vietnamese: "Tôi hy vọng có cơ hội đi đón cha mẹ ở sân bay.", chinese: "我希望有机会去机场接父母。", pinyin: "wǒ xīwàng yǒu jīhuì qù jīchǎng jiē fùmǔ.", targetWord: "机会" },
-            { id: 3, vietnamese: "Vừa bước vào cửa, tôi liền nhìn thấy cha đang viết nhật ký khi thời tiết chuyển sang trời âm u.", chinese: "一进门，我就看见父亲正在天气转阴时写日记。", pinyin: "yí jìnmén, wǒ jiù kànjiàn fùqīn zhèngzài tiānqì zhuǎn yīn shí xiě rìjì.", targetWord: "进门" },
-            { id: 4, vietnamese: "Máy bay sắp cất cánh đúng giờ rồi, chúng ta mau ra sân bay tiễn anh ấy đi thôi.", chinese: "飞机就要正点起飞了，我们快去机场送他吧。", pinyin: "fēijī jiùyào zhèngdiǎn qǐfēi le, wǒmen kuài qù jīchǎng sòng tā ba.", targetWord: "正点" },
-            { id: 5, vietnamese: "Thật là kỳ lạ, đây là lần đầu tiên tôi gặp phải tình huống chuyến bay bị delay.", chinese: "真奇怪，这是我第一次遇到航班晚点的情况。", pinyin: "zhēn qíguài, zhè shì wǒ dì yī cì yùdào hángbān wǎndiǎn de qíngkuàng.", targetWord: "奇怪" }
-        ];
-
-        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 2
-        const lesson2Sentences = [
-            { id: 1, vietnamese: "Cô ấy mặc một chiếc áo sơ mi màu đỏ và đeo một chiếc cặp màu đen.", chinese: "她穿着一件红色的衬衫，背着一个黑色的包。", pinyin: "tā chuānzhe yí jiàn hóngsè de chènshān, bēizhe yí gè hēisè de bāo.", targetWord: "衬衫" },
-            { id: 2, vietnamese: "Người nhặt được chiếc ví tiền bị mất xin hãy chủ động liên hệ với ông Vương.", chinese: "拾到丢失钱包的人请主动与王先生联系。", pinyin: "shídào diūshī qiánbāo de rén qǐng zhǔdòng yǔ wáng xiānsheng liánxì.", targetWord: "联系" },
-            { id: 3, vietnamese: "Cảnh sát đang ở trên sân tập để giúp người phụ nữ đó tìm kiếm đứa trẻ bị lạc.", chinese: "警察正在操场上帮助那位女士寻找走散的孩子。", pinyin: "jǐngchá zhèngzài cāochǎng shang bāngzhù nà wèi nǚshì xúnzhǎo zǒusàn de háizi.", targetWord: "寻找" },
-            { id: 4, vietnamese: "Tôi muốn mua một món quà đặc biệt để bày tỏ lòng cảm ơn sâu sắc đối với cô Trương.", chinese: "我想买一份特别的礼物来对张小姐表示深切的感谢。", pinyin: "wǒ xiǎng mǎi yí fèn tèbié de lǐwù lái duì zhāng xiǎojiě biǎoshì shēnqiè de gǎnxiè.", targetWord: "感谢" },
-            { id: 5, vietnamese: "Cậu ấy cao khoảng một mét tám, tóc rất ngắn nhưng đôi mắt lại rất to.", chinese: "他个子大概一米八左右，头发很短，但是眼睛很大。", pinyin: "tā gèzi dàgài yì mǐ bā zuǒyòu, tóufa hěn duǎn, dànshì yǎnjing hěn dà.", targetWord: "个子" },
-            { id: 6, vietnamese: "Bạn có thể lựa chọn thanh toán bằng tiền mặt hoặc thanh toán trực tuyến.", chinese: "你可以选择用现金付款或者在线支付。", pinyin: "nǐ kěyǐ xuǎnzé yòng xiànjīn fùkuǎn huòzhě zàixiàn zhīfù.", targetWord: "或者" }
-        ];
-
-        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 3
-        const lesson3Sentences = [
-            { id: 1, vietnamese: "Mỹ là một nước phát triển, diện tích rất lớn nhưng dân số không đông bằng Trung Quốc.", chinese: "美国是一个发达国家，面积很大，但是人口没有中国那么多。", pinyin: "měiguó shì yí gè fādá guójiā, miànjī hěn dà, dànshì rénkǒu méiyǒu zhōngguó nàme duō.", targetWord: "发达国家" },
-            { id: 2, vietnamese: "Sau khi tan làm, mọi người lái ô tô đi khắp nơi tìm mua món quà sinh nhật.", chinese: "下班以后，人们开着汽车到处寻找购买生日礼物。", pinyin: "xiàbān yǐhòu, rénmen kāizhe qìchē dàochù xúnzhǎo gòumǎi shēngrì lǐwù.", targetWord: "下班" },
-            { id: 3, vietnamese: "Trung Quốc có rất nhiều danh lam thắng cảnh hùng vĩ, ví dụ như sông Hoàng Hà.", chinese: "中国有很多壮观的名胜古迹，比如说黄河。", pinyin: "zhōngguó hǒu hěn duō zhuàngguān de míngshèng gǔjì, bǐrúshuō huánghé.", targetWord: "名胜古迹" },
-            { id: 4, vietnamese: "Mỗi dân tộc, đặc biệt là các dân tộc thiểu số, đều có các món ăn đặc sắc khác nhau.", chinese: "每个民族，尤其是少数民族，都有自己独特的菜系。", pinyin: "měi gè mínzú, yóuqíshì shǎoshù mínzú, dōu yǒu zìjǐ dútè de càixì.", targetWord: "少数民族" },
-            { id: 5, vietnamese: "Thời gian nghỉ hè rất ngắn, tôi muốn cùng bố mẹ đi tham quan các địa danh lịch sử.", chinese: "暑假的时间很短，我想跟父母一起去参观一些名胜古迹。", pinyin: "shǔjià de shíjiān hěn duǎn, wǒ xiǎng gēn fùmǔ yìqǐ qù cānguān yìxiē míngshèng gǔjì.", targetWord: "短" }
-        ];
-
-        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 4
-        const lesson4Sentences = [
-            { id: 1, vietnamese: "Tủ lạnh đã đầy rồi, những quả táo và quýt này thực sự không thể nhét vào được nữa.", chinese: "冰箱已经满了，这些苹果和橘子真的塞不进去了。", pinyin: "bīngxiāng yǐjīng mǎn le, zhèxiē píngguǒ hé júzi zhēnde sāibùjìnqù le.", targetWord: "塞不进去" },
-            { id: 2, vietnamese: "Hơn nữa, trong trái cây có rất nhiều vitamin, ăn nhiều một chút sẽ không bị ốm.", chinese: "再说，水果里有很多维生素，多吃一点就不会生病。", pinyin: "zàishuō, shuǐguǒ li yǒu hěn duō wéishēngsù, duō chī yìdiǎn jiù bú huì shēngbìng.", targetWord: "再说" },
-            { id: 3, vietnamese: "Xem ra chúng ta nên dọn dẹp tủ lạnh một chút rồi, nếu không đồ ăn sẽ hỏng mất.", chinese: "看来我们该清理一下冰箱了，不然食物会坏的。", pinyin: "kànlái wǒmen gāi qīnglǐ yíxià bīngxiāng le, bùrán shíwù huì huài de.", targetWord: "看来" },
-            { id: 4, vietnamese: "Động vật thích nhất của tôi là gấu trúc, trên người nó có lớp lông hai màu đen trắng, rất đáng yêu.", chinese: "我最喜欢的动物是熊猫，它身上有黑白两色的毛，非常可爱。", pinyin: "wǒ zuì xǐhuan de dòngwù shì xióngmāo, tā shēnshang yǒu hēibái liǎng sè de máo, fēicháng kě'ài.", targetWord: "身上" },
-            { id: 5, vietnamese: "Anh ấy đang đeo một cặp kính râm, trông quầng mắt giống hệt như gấu trúc vậy.", chinese: "他戴着一副墨镜，看起来眼圈跟熊猫一模一样。", pinyin: "tā dàizhe yí fù mòjìng, kàn qǐlái yǎnquān gēn xióngmāo yìmúyíyàng.", targetWord: "墨镜" }
-        ];
-
         // Dữ liệu Bài học 5: 比赛很精彩
         const lesson5Vocab = [
             { id: 1, word: "精彩", pinyin: "jīngcǎi", translation: "xuất sắc, đặc sắc, tuyệt vời", example: "这场足球比赛非常精彩。", exTranslation: "Trận đấu bóng đá này vô cùng đặc sắc." },
@@ -863,15 +828,6 @@
             { id: 41, word: "乌龟", pinyin: "wūguī", translation: "con rùa", example: "这只小乌龟爬得真慢。", exTranslation: "Chú rùa con này bò thật là chậm." }
         ];
 
-        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 5
-        const lesson5Sentences = [
-            { id: 1, vietnamese: "Trận đấu bóng đá hôm nay vô cùng xuất sắc, hai đội cuối cùng đã hòa nhau.", chinese: "今天的足球比赛非常精彩，两队最后打成了平分。", pinyin: "jīntiān de zúqiú bǐsài fēicháng jīngcǎi, liǎng duì zuìhòu dǎ chéng le píngfēn.", targetWord: "精彩" },
-            { id: 2, vietnamese: "Nếu như ngày mai trời mưa, chúng ta sẽ không cùng nhau đi đá bóng nữa.", chinese: "要是明天下雨，我们就不一块儿去踢足球了。", pinyin: "yàoshi míngtiān xiàyǔ, wǒmen jiù bù yíkuàir qù tī zúqiú le.", targetWord: "要是" },
-            { id: 3, vietnamese: "Nghe thấy đồng hồ báo thức reo, anh ấy vội vàng thức dậy và gọi taxi đi làm.", chinese: "听见闹钟响了，他急忙醒来，打出租车去上班。", pinyin: "tīngjiàn nàozhōng xiǎng le, tā jímáng xǐng lái, dǎ chūzūchē qù shàngbān.", targetWord: "闹钟响了" },
-            { id: 4, vietnamese: "Đối thủ lần này rất lợi hại, chúng tôi khó khăn lắm mới giành được chiến thắng.", chinese: "这次的对手很厉害，我们好不容易才取得胜利。", pinyin: "zhè cì de duìshǒu hěn lìhai, wǒmen hǎobù róngyì cái qǔdé shènglì.", targetWord: "胜利" },
-            { id: 5, vietnamese: "Đừng lãng phí thời gian nữa, mọi người mau cổ vũ cho anh ấy đi!", chinese: "别浪费时间了，大家快给他加油吧！", pinyin: "bié làngfèi shíjiān le, dàjiā kuài gěi tā jiāyóu ba!", targetWord: "浪费" }
-        ];
-
         // Dữ liệu Bài học 6: 我进不去
         const lesson6Vocab = [
             { id: 1, word: "腿", pinyin: "tuǐ", translation: "chân", example: "他的腿受伤了，现在还不能走路。", exTranslation: "Chân anh ấy bị thương, bây giờ vẫn chưa thể đi lại." },
@@ -911,15 +867,6 @@
             { id: 35, word: "感到", pinyin: "gǎndào", translation: "cảm thấy", example: "看到他取得好成绩，我感到很骄傲。", exTranslation: "Thấy anh ấy đạt thành tích tốt, tôi cảm thấy rất tự hào." }
         ];
 
-        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 6
-        const lesson6Sentences = [
-            { id: 1, vietnamese: "Bởi vì tôi không mang chìa khóa nên đột nhiên không thể vào nhà được.", chinese: "因为没带钥匙，我突然进不去了。", pinyin: "yīnwèi méi dài yàoshi, wǒ tūrán jìn bú qù le.", targetWord: "突然" },
-            { id: 2, vietnamese: "Anh ấy không cẩn thận bị ngã một cú, chân đi lại có chút cà nhắc.", chinese: "他不小心摔了一跤，走路腿有点拐。", pinyin: "tā bù xiǎoxīn shuāi le yì jiāo, zǒulù tuǐ yǒudiǎn guǎi.", targetWord: "摔" },
-            { id: 3, vietnamese: "Cửa sổ phòng tôi đang mở, một con muỗi bay vào trong.", chinese: "我房间的窗户开着，有一只蚊子飞进来了。", pinyin: "wǒ fángjiān de chuānghu kāizhe, yǒu yì zhī wénzi fēi jìnlái le.", targetWord: "窗户" },
-            { id: 4, vietnamese: "Tường nhà hàng xóm treo một bức tranh, nhìn không rõ lắm.", chinese: "邻居家的墙上挂着一幅画，看不清楚。", pinyin: "línjū jiā de qiáng shang guàzhe yì fú huà, kàn bù qīngchu.", targetWord: "墙" },
-            { id: 5, vietnamese: "Đã trễ thế này rồi, bây giờ đi ra sân bay khẳng định là không kịp nữa.", chinese: "都这么晚了，现在去机场肯定来不及了。", pinyin: "dōu zhème wǎn le, xiànzài qù jīchǎng kěndìng láibují le.", targetWord: "来不及" }
-        ];
-
         // Dữ liệu Bài học 7: 西红柿炒鸡蛋
         const lesson7Vocab = [
             { id: 1, word: "教", pinyin: "jiāo", translation: "dạy", example: "老师教我们汉语。", exTranslation: "Thầy giáo dạy chúng tôi tiếng Trung." },
@@ -955,13 +902,104 @@
             { id: 31, word: "最后", pinyin: "zuìhòu", translation: "cuối cùng", example: "最后，我们加一点香菜。", exTranslation: "Cuối cùng, chúng ta cho thêm một chút rau mùi." }
         ];
 
-        // Danh sách câu dịch chọn lọc chất lượng cao cho Bài 7
+        // Dữ liệu Bài học 8: 一封信
+        const lesson8Vocab = [
+            { id: 1, word: "信", pinyin: "xìn", translation: "thư", example: "这是一封给你的信。", exTranslation: "Đây là một bức thư gửi cho bạn." },
+            { id: 2, word: "封", pinyin: "fēng", translation: "bức, phong (lượng từ)", example: "他写了一封长信给妈妈。", exTranslation: "Anh ấy đã viết một bức thư dài cho mẹ." },
+            { id: 3, word: "收到", pinyin: "shōudào", translation: "nhận được", example: "我昨天收到了大学的录取通知书。", exTranslation: "Hôm qua tôi đã nhận được giấy báo trúng tuyển của trường đại học." },
+            { id: 4, word: "一切", pinyin: "yíqiè", translation: "tất cả, mọi thứ", example: "祝你在新的一年里一切顺利。", exTranslation: "Chúc bạn trong năm mới mọi thứ đều thuận lợi." },
+            { id: 5, word: "所以", pinyin: "suǒyǐ", translation: "cho nên, vì vậy", example: "因为下雨，所以我们没去公园。", exTranslation: "Vì trời mưa, nên chúng tôi không đi công viên." },
+            { id: 6, word: "原谅", pinyin: "yuánliàng", translation: "tha thứ, lượng thứ", example: "请原谅我这次的错误。", exTranslation: "Xin hãy tha thứ cho lỗi lầm lần này của tôi." },
+            { id: 7, word: "转眼", pinyin: "zhuǎnyǎn", translation: "chớp mắt, thoáng cái", example: "转眼间，我们都已经大学毕业了。", exTranslation: "Thoáng cái, chúng ta đều đã tốt nghiệp đại học rồi." },
+            { id: 8, word: "难过", pinyin: "nánguò", translation: "buồn bã, khó chịu", example: "听到这个坏消息，她心里很难过。", exTranslation: "Nghe thấy tin xấu này, trong lòng cô ấy rất buồn." },
+            { id: 9, word: "一定", pinyin: "yídìng", translation: "nhất định", example: "我一定会努力学习，考上好大学。", exTranslation: "Tôi nhất định sẽ nỗ lực học tập, thi đỗ trường đại học tốt." },
+            { id: 10, word: "程度", pinyin: "chéngdù", translation: "mức độ, trình độ", example: "他的汉语已经达到了很高的程度。", exTranslation: "Tiếng Trung của anh ấy đã đạt đến mức độ rất cao." },
+            { id: 11, word: "水平", pinyin: "shuǐpíng", translation: "trình độ", example: "经过一年的学习，我的汉语水平有了很大提高。", exTranslation: "Sau một năm học tập, trình độ tiếng Trung của tôi đã có sự nâng cao rất lớn." },
+            { id: 12, word: "提高", pinyin: "tígāo", translation: "nâng cao", example: "多看书可以提高我们的阅读能力。", exTranslation: "Đọc sách nhiều có thể nâng cao năng lực đọc hiểu của chúng ta." },
+            { id: 13, word: "交", pinyin: "jiāo", translation: "kết (bạn), giao nộp", example: "我在中国交了很多新朋友。", exTranslation: "Tôi đã kết rất nhiều bạn mới ở Trung Quốc." },
+            { id: 14, word: "世界", pinyin: "shìjiè", translation: "thế giới", example: "世界上有许多不同语言和文化。", exTranslation: "Trên thế giới có rất nhiều ngôn ngữ và văn hóa khác nhau." },
+            { id: 15, word: "各", pinyin: "gè", translation: "các, mỗi", example: "各位旅客，开往北京的列车即将进站。", exTranslation: "Thưa các vị hành khách, chuyến tàu đi Bắc Kinh sắp vào ga." },
+            { id: 16, word: "互相", pinyin: "hùxiāng", translation: "lẫn nhau", example: "同学之间应该互相帮助，互相学习。", exTranslation: "Giữa các bạn học nên giúp đỡ lẫn nhau, học hỏi lẫn nhau." },
+            { id: 17, word: "分之", pinyin: "fēnzhī", translation: "phần (tỷ lệ)", example: "百分之八十的学生通过了这次考试。", exTranslation: "Tám mươi phần trăm học sinh đã vượt qua kỳ thi lần này." },
+            { id: 18, word: "过", pinyin: "guò", translation: "qua, từng", example: "你去过北京的长城吗？", exTranslation: "Bạn đã từng đi Vạn Lý Trường Thành ở Bắc Kinh chưa?" },
+            { id: 19, word: "简化字", pinyin: "jiǎnhuàzì", translation: "chữ giản thể", example: "我们现在学习的汉字是简化字。", exTranslation: "Chữ Hán chúng ta học hiện nay là chữ giản thể." },
+            { id: 20, word: "进行", pinyin: "jìnxíng", translation: "tiến hành", example: "会议将在明天上午九点进行。", exTranslation: "Cuộc họp sẽ được tiến hành vào 9 giờ sáng ngày mai." },
+            { id: 21, word: "会话", pinyin: "huìhuà", translation: "hội thoại", example: "每天练习会话对学习外语很有帮助。", exTranslation: "Luyện tập hội thoại mỗi ngày rất có ích cho việc học ngoại ngữ." },
+            { id: 22, word: "将来", pinyin: "jiānglái", translation: "tương lai", example: "你将来想做什么工作？", exTranslation: "Tương lai bạn muốn làm công việc gì?" },
+            { id: 23, word: "基本", pinyin: "jīběn", translation: "cơ bản", example: "这篇文章的基本内容我已经了解了。", exTranslation: "Nội dung cơ bản của bài văn này tôi đã nắm được rồi." },
+            { id: 24, word: "菜单", pinyin: "càidān", translation: "thực đơn", example: "服务员，请给我们拿一下菜单。", exTranslation: "Phục vụ, xin hãy lấy cho chúng tôi thực đơn." },
+            { id: 25, word: "中餐", pinyin: "zhōngcān", translation: "món ăn Trung Quốc", example: "我非常喜欢吃中餐，特别是北京烤鸭。", exTranslation: "Tôi rất thích ăn đồ Trung Quốc, đặc biệt là vịt quay Bắc Kinh." },
+            { id: 26, word: "地道", pinyin: "dìdào", translation: "chính cống, chuẩn xác", example: "他的汉语说得很地道，像中国人一样。", exTranslation: "Tiếng Trung của anh ấy nói rất chuẩn, giống hệt người Trung Quốc." },
+            { id: 27, word: "延长", pinyin: "yáncháng", translation: "kéo dài", example: "因为天气原因，会议的时间延长了。", exTranslation: "Vì lý do thời tiết, thời gian cuộc họp đã được kéo dài." },
+            { id: 28, word: "了解", pinyin: "liǎojiě", translation: "hiểu, tìm hiểu", example: "我想多了解一些中国的传统文化。", exTranslation: "Tôi muốn tìm hiểu thêm một chút về văn hóa truyền thống Trung Quốc." },
+            { id: 29, word: "文化", pinyin: "wénhuà", translation: "văn hóa", example: "学习一门语言也是在学习它的文化。", exTranslation: "Học một ngôn ngữ cũng là đang học văn hóa của nó." },
+            { id: 30, word: "健康", pinyin: "jiànkāng", translation: "khỏe mạnh, sức khỏe", example: "祝您的父母身体健康，生活幸福。", exTranslation: "Chúc bố mẹ của bạn sức khỏe dồi dào, cuộc sống hạnh phúc." }
+        ];
+
+        // Danh sách câu dịch chọn lọc cho các bài
+        const lesson1Sentences = [
+            { id: 1, vietnamese: "Chuyến bay hôm nay bị trễ giờ, vì thế cha mẹ phải đợi ở sân bay lâu hơn.", chinese: "今天的航班晚点了，因此父母要在机场等更久。", pinyin: "jīntiān de hángbān wǎndiǎn le, yīncǐ fùmǔ yào zài jīchǎng děng gèng jiǔ.", targetWord: "航班" },
+            { id: 2, vietnamese: "Tôi hy vọng có cơ hội đi đón cha mẹ ở sân bay.", chinese: "我希望有机会去机场接父母。", pinyin: "wǒ xīwàng yǒu jīhuì qù jīchǎng jiē fùmǔ.", targetWord: "机会" },
+            { id: 3, vietnamese: "Vừa bước vào cửa, tôi liền nhìn thấy cha đang viết nhật ký khi thời tiết chuyển sang trời âm u.", chinese: "一进门，我就看见父亲正在天气转阴时写日记。", pinyin: "yí jìnmén, wǒ jiù kànjiàn fùqīn zhèngzài tiānqì zhuǎn yīn shí xiě rìjì.", targetWord: "进门" },
+            { id: 4, vietnamese: "Máy bay sắp cất cánh đúng giờ rồi, chúng ta mau ra sân bay tiễn anh ấy đi thôi.", chinese: "飞机就要正点起飞了，我们快去机场送他吧。", pinyin: "fēijī jiùyào zhèngdiǎn qǐfēi le, wǒmen kuài qù jīchǎng sòng tā ba.", targetWord: "正点" },
+            { id: 5, vietnamese: "Thật là kỳ lạ, đây là lần đầu tiên tôi gặp phải tình huống chuyến bay bị delay.", chinese: "真奇怪，这是我第一次遇到航班晚点的情况。", pinyin: "zhēn qíguài, zhè shì wǒ dì yī cì yùdào hángbān wǎndiǎn de qíngkuàng.", targetWord: "奇怪" }
+        ];
+
+        const lesson2Sentences = [
+            { id: 1, vietnamese: "Cô ấy mặc một chiếc áo sơ mi màu đỏ và đeo một chiếc cặp màu đen.", chinese: "她穿着一件红色的衬衫，背着一个黑色的包。", pinyin: "tā chuānzhe yí jiàn hóngsè de chènshān, bēizhe yí gè hēisè de bāo.", targetWord: "衬衫" },
+            { id: 2, vietnamese: "Người nhặt được chiếc ví tiền bị mất xin hãy chủ động liên hệ với ông Vương.", chinese: "拾到丢失钱包的人请主动与王先生联系。", pinyin: "shídào diūshī qiánbāo de rén qǐng zhǔdòng yǔ wáng xiānsheng liánxì.", targetWord: "联系" },
+            { id: 3, vietnamese: "Cảnh sát đang ở trên sân tập để giúp người phụ nữ đó tìm kiếm đứa trẻ bị lạc.", chinese: "警察正在操场上帮助那位女士寻找走散的孩子。", pinyin: "jǐngchá zhèngzài cāochǎng shang bāngzhù nà wèi nǚshì xúnzhǎo zǒusàn de háizi.", targetWord: "寻找" },
+            { id: 4, vietnamese: "Tôi muốn mua một món quà đặc biệt để bày tỏ lòng cảm ơn sâu sắc đối với cô Trương.", chinese: "我想买一份特别的礼物来对张小姐表示深切的感谢。", pinyin: "wǒ xiǎng mǎi yí fèn tèbié de lǐwù lái duì zhāng xiǎojiě biǎoshì shēnqiè de gǎnxiè.", targetWord: "感谢" },
+            { id: 5, vietnamese: "Cậu ấy cao khoảng một mét tám, tóc rất ngắn nhưng đôi mắt lại rất to.", chinese: "他个子大概一米八左右，头发很短，但是眼睛很大。", pinyin: "tā gèzi dàgài yì mǐ bā zuǒyòu, tóufa hěn duǎn, dànshì yǎnjing hěn dà.", targetWord: "个子" },
+            { id: 6, vietnamese: "Bạn có thể lựa chọn thanh toán bằng tiền mặt hoặc thanh toán trực tuyến.", chinese: "你可以选择用现金付款或者在线支付。", pinyin: "nǐ kěyǐ xuǎnzé yòng xiànjīn fùkuǎn huòzhě zàixiàn zhīfù.", targetWord: "或者" }
+        ];
+
+        const lesson3Sentences = [
+            { id: 1, vietnamese: "Mỹ là một nước phát triển, diện tích rất lớn nhưng dân số không đông bằng Trung Quốc.", chinese: "美国是一个发达国家，面积很大，但是人口没有中国那么多。", pinyin: "měiguó shì yí gè fādá guójiā, miànjī hěn dà, dànshì rénkǒu méiyǒu zhōngguó nàme duō.", targetWord: "发达国家" },
+            { id: 2, vietnamese: "Sau khi tan làm, mọi người lái ô tô đi khắp nơi tìm mua món quà sinh nhật.", chinese: "下班以后，人们开着汽车到处寻找购买生日礼物。", pinyin: "xiàbān yǐhòu, rénmen kāizhe qìchē dàochù xúnzhǎo gòumǎi shēngrì lǐwù.", targetWord: "下班" },
+            { id: 3, vietnamese: "Trung Quốc có rất nhiều danh lam thắng cảnh hùng vĩ, ví dụ như sông Hoàng Hà.", chinese: "中国有很多壮观的名胜古迹，比如说黄河。", pinyin: "zhōngguó hǒu hěn duō zhuàngguān de míngshèng gǔjì, bǐrúshuō huánghé.", targetWord: "名胜古迹" },
+            { id: 4, vietnamese: "Mỗi dân tộc, đặc biệt là các dân tộc thiểu số, đều có các món ăn đặc sắc khác nhau.", chinese: "每个民族，尤其是少数民族，都有自己独特的菜系。", pinyin: "měi gè mínzú, yóuqíshì shǎoshù mínzú, dōu yǒu zìjǐ dútè de càixì.", targetWord: "少数民族" },
+            { id: 5, vietnamese: "Thời gian nghỉ hè rất ngắn, tôi muốn cùng bố mẹ đi tham quan các địa danh lịch sử.", chinese: "暑假的时间很短，我想跟父母一起去参观一些名胜古迹。", pinyin: "shǔjià de shíjiān hěn duǎn, wǒ xiǎng gēn fùmǔ yìqǐ qù cānguān yìxiē míngshèng gǔjì.", targetWord: "短" }
+        ];
+
+        const lesson4Sentences = [
+            { id: 1, vietnamese: "Tủ lạnh đã đầy rồi, những quả táo và quýt này thực sự không thể nhét vào được nữa.", chinese: "冰箱已经满了，这些苹果和橘子真的塞不进去了。", pinyin: "bīngxiāng yǐjīng mǎn le, zhèxiē píngguǒ hé júzi zhēnde sāibùjìnqù le.", targetWord: "塞不进去" },
+            { id: 2, vietnamese: "Hơn nữa, trong trái cây có rất nhiều vitamin, ăn nhiều một chút sẽ không bị ốm.", chinese: "再说，水果里有很多维生素，多吃一点就不会生病。", pinyin: "zàishuō, shuǐguǒ li yǒu hěn duō wéishēngsù, duō chī yìdiǎn jiù bú huì shēngbìng.", targetWord: "再说" },
+            { id: 3, vietnamese: "Xem ra chúng ta nên dọn dẹp tủ lạnh một chút rồi, nếu không đồ ăn sẽ hỏng mất.", chinese: "看来我们该清理一下冰箱了，不然食物会坏的。", pinyin: "kànlái wǒmen gāi qīnglǐ yíxià bīngxiāng le, bùrán shíwù huì huài de.", targetWord: "看来" },
+            { id: 4, vietnamese: "Động vật thích nhất của tôi là gấu trúc, trên người nó có lớp lông hai màu đen trắng, rất đáng yêu.", chinese: "我最喜欢的动物是熊猫，它身上有黑白两色的毛，非常可爱。", pinyin: "wǒ zuì xǐhuan de dòngwù shì xióngmāo, tā shēnshang yǒu hēibái liǎng sè de máo, fēicháng kě'ài.", targetWord: "身上" },
+            { id: 5, vietnamese: "Anh ấy đang đeo một cặp kính râm, trông quầng mắt giống hệt như gấu trúc vậy.", chinese: "他戴着一副墨镜，看起来眼圈跟熊猫一模一样。", pinyin: "tā dàizhe yí fù mòjìng, kàn qǐlái yǎnquān gēn xióngmāo yìmúyíyàng.", targetWord: "墨镜" }
+        ];
+
+        const lesson5Sentences = [
+            { id: 1, vietnamese: "Trận đấu bóng đá hôm nay vô cùng xuất sắc, hai đội cuối cùng đã hòa nhau.", chinese: "今天的足球比赛非常精彩，两队最后打成了平分。", pinyin: "jīntiān de zúqiú bǐsài fēicháng jīngcǎi, liǎng duì zuìhòu dǎ chéng le píngfēn.", targetWord: "精彩" },
+            { id: 2, vietnamese: "Nếu như ngày mai trời mưa, chúng ta sẽ không cùng nhau đi đá bóng nữa.", chinese: "要是明天下雨，我们就不一块儿去踢足球了。", pinyin: "yàoshi míngtiān xiàyǔ, wǒmen jiù bù yíkuàir qù tī zúqiú le.", targetWord: "要是" },
+            { id: 3, vietnamese: "Nghe thấy đồng hồ báo thức reo, anh ấy vội vàng thức dậy và gọi taxi đi làm.", chinese: "听见闹钟响了，他急忙醒来，打出租车去上班。", pinyin: "tīngjiàn nàozhōng xiǎng le, tā jímáng xǐng lái, dǎ chūzūchē qù shàngbān.", targetWord: "闹钟响了" },
+            { id: 4, vietnamese: "Đối thủ lần này rất lợi hại, chúng tôi khó khăn lắm mới giành được chiến thắng.", chinese: "这次的对手很厉害，我们好不容易才取得胜利。", pinyin: "zhè cì de duìshǒu hěn lìhai, wǒmen hǎobù róngyì cái qǔdé shènglì.", targetWord: "胜利" },
+            { id: 5, vietnamese: "Đừng lãng phí thời gian nữa, mọi người mau cổ vũ cho anh ấy đi!", chinese: "别浪费时间了，大家快给他加油吧！", pinyin: "bié làngfèi shíjiān le, dàjiā kuài gěi tā jiāyóu ba!", targetWord: "浪费" }
+        ];
+
+        const lesson6Sentences = [
+            { id: 1, vietnamese: "Bởi vì tôi không mang chìa khóa nên đột nhiên không thể vào nhà được.", chinese: "因为没带钥匙，我突然进不去了。", pinyin: "yīnwèi méi dài yàoshi, wǒ tūrán jìn bú qù le.", targetWord: "突然" },
+            { id: 2, vietnamese: "Anh ấy không cẩn thận bị ngã một cú, chân đi lại có chút cà nhắc.", chinese: "他不小心摔了一跤，走路腿有点拐。", pinyin: "tā bù xiǎoxīn shuāi le yì jiāo, zǒulù tuǐ yǒudiǎn guǎi.", targetWord: "摔" },
+            { id: 3, vietnamese: "Cửa sổ phòng tôi đang mở, một con muỗi bay vào trong.", chinese: "我房间的窗户开着，有一只蚊子飞进来了。", pinyin: "wǒ fángjiān de chuānghu kāizhe, yǒu yì zhī wénzi fēi jìnlái le.", targetWord: "窗户" },
+            { id: 4, vietnamese: "Tường nhà hàng xóm treo một bức tranh, nhìn không rõ lắm.", chinese: "邻居家的墙上挂着一幅画，看不清楚。", pinyin: "línjū jiā de qiáng shang guàzhe yì fú huà, kàn bù qīngchu.", targetWord: "墙" },
+            { id: 5, vietnamese: "Đã trễ thế này rồi, bây giờ đi ra sân bay khẳng định là không kịp nữa.", chinese: "都这么晚了，现在去机场肯定来不及了。", pinyin: "dōu zhème wǎn le, xiànzài qù jīchǎng kěndìng láibují le.", targetWord: "来不及" }
+        ];
+
         const lesson7Sentences = [
             { id: 1, vietnamese: "Cà chua xào trứng gà là một món ăn gia đình rất ngon miệng, hơn nữa dinh dưỡng cũng vô cùng phong phú.", chinese: "西红柿炒鸡蛋是一道很可口的家常菜，而且营养也十分丰富。", pinyin: "xīhóngshì chǎo jīdàn shì yí dào hěn kěkǒu de jiāchángcài, érqiě yíngyǎng yě shífēn fēngfù.", targetWord: "营养" },
             { id: 2, vietnamese: "Cách làm của cô ấy là đầu tiên cắt cà chua thành từng miếng, sau đó dùng đũa đánh trứng gà cho đều.", chinese: "她的做法是先将西红柿切成块儿，然后用筷子把鸡蛋搅拌均匀。", pinyin: "tā de zuòfǎ shì xiān jiāng xīhóngshì qiē chéng kuàir, ránhòu yòng kuàizi bǎ jīdàn jiǎobàn jūnyún.", targetWord: "搅拌" },
             { id: 3, vietnamese: "Đợi sau khi dầu nóng, chúng ta nhanh chóng cho trứng gà vào nồi.", chinese: "等油热了之后，我们迅速地把鸡蛋放进锅里。", pinyin: "děng yóu rè le zhīhòu, wǒmen xùnsù de bǎ jīdàn fàng jìn guō lǐ.", targetWord: "迅速" },
             { id: 4, vietnamese: "Bạn nếm thử xem món ăn này có mặn hay không, nếu chưa đủ thì thêm vài gram muối.", chinese: "你尝尝这道菜咸不咸，如果不够再加几克盐。", pinyin: "nǐ chángchang zhè dào cài xián bù xián, rúguǒ bú gòu zài jiā jǐ kè yán.", targetWord: "尝" },
             { id: 5, vietnamese: "Đặc điểm của món ăn này là ngửi thì thấy rất thơm, khi trứng chín là có thể cho ra đĩa.", chinese: "这道菜的特点是闻起来很香，鸡蛋熟了就可以出锅了。", pinyin: "zhè dào cài de tèdiǎn shì wén qǐlái hěn xiāng, jīdàn shú le jiù kěyǐ chū guō le.", targetWord: "特点" }
+        ];
+
+        const lesson8Sentences = [
+            { id: 1, vietnamese: "Thoáng cái, tôi đã ở Trung Quốc học được một năm rồi, trình độ tiếng Trung nâng cao rất nhiều.", chinese: "转眼间，我在中国已经学习一年了，汉语水平提高了很多。", pinyin: "zhuǎnyǎn jiān, wǒ zài zhōngguó yǐjīng xuéxí yì nián le, hànyǔ shuǐpíng tígāo le hěn duō.", targetWord: "转眼" },
+            { id: 2, vietnamese: "Tương lai tôi muốn kết bạn với mọi người từ khắp nơi trên thế giới để hiểu thêm về các nền văn hóa.", chinese: "将来我想交世界各地的朋友，为了多了解各种文化。", pinyin: "jiānglái wǒ xiǎng jiāo shìjiè gèdì de péngyou, wèi le duō liǎojiě gè zhǒng wénhuà.", targetWord: "将来" },
+            { id: 3, vietnamese: "Xin hãy tha thứ cho tôi vì lâu như vậy mới viết thư cho bạn, ở đây tôi mọi thứ đều rất tốt.", chinese: "请原谅我这么久才给你写信，我在这里一切都很好。", pinyin: "qǐng yuánliàng wǒ zhème jiǔ cái gěi nǐ xiě xìn, wǒ zài zhèlǐ yíqiè dōu hěn hǎo.", targetWord: "原谅" },
+            { id: 4, vietnamese: "Chúng ta có thể dùng tiếng Trung tiến hành hội thoại cơ bản, thỉnh thoảng còn có thể đi ăn món Trung chính cống.", chinese: "我们可以用汉语进行基本会话，有时还可以去吃地道的中餐。", pinyin: "wǒmen kěyǐ yòng hànyǔ jìnxíng jīběn huìhuà, yǒushí hái kěyǐ qù chī dìdào de zhōngcān.", targetWord: "进行" },
+            { id: 5, vietnamese: "Nghe nói anh ấy bị ốm, trong lòng tôi rất buồn, hy vọng anh ấy sớm khôi phục sức khỏe.", chinese: "听说他生病了，我心里很难过，希望他早日恢复健康。", pinyin: "tīngshuō tā shēngbìng le, wǒ xīnli hěn nánguò, xīwàng tā zǎorì huīfù jiànkāng.", targetWord: "难过" }
         ];
 
         // Quản lý Trạng thái
@@ -1122,9 +1160,12 @@
             } else if (lessonKey === 'lesson6') {
                 vocabData = [...lesson6Vocab];
                 localSentences = [...lesson6Sentences];
-            } else {
+            } else if (lessonKey === 'lesson7') {
                 vocabData = [...lesson7Vocab];
                 localSentences = [...lesson7Sentences];
+            } else {
+                vocabData = [...lesson8Vocab];
+                localSentences = [...lesson8Sentences];
             }
 
             // Hủy xáo trộn nếu đang bật
@@ -1150,7 +1191,8 @@
                 'lesson4': 'Bài 4: 冰箱里塞满了水果',
                 'lesson5': 'Bài 5: 比赛很精彩',
                 'lesson6': 'Bài 6: 我进不去',
-                'lesson7': 'Bài 7: 西红柿炒鸡蛋'
+                'lesson7': 'Bài 7: 西红柿炒鸡蛋',
+                'lesson8': 'Bài 8: 一封信'
             };
             document.getElementById('list-lesson-title').textContent = lessonTitles[lessonKey];
             document.getElementById('list-vocab-count').textContent = `${vocabData.length} Từ`;
@@ -1170,6 +1212,7 @@
             else if (activeLesson === 'lesson5') vocabData = [...lesson5Vocab];
             else if (activeLesson === 'lesson6') vocabData = [...lesson6Vocab];
             else if (activeLesson === 'lesson7') vocabData = [...lesson7Vocab];
+            else if (activeLesson === 'lesson8') vocabData = [...lesson8Vocab];
             isShuffled = false;
         }
 
@@ -1403,14 +1446,17 @@
             }
         }
 
-        // Cập nhật thống kê toàn hệ thống (tất cả các bài)
+        // Cập nhật thống kê toàn hệ thống (tất cả các bài từ 1 đến 8)
         function updateGlobalStats() {
-            const allVocabArrays = [lesson1Vocab, lesson2Vocab, lesson3Vocab, lesson4Vocab, lesson5Vocab, lesson6Vocab, lesson7Vocab];
+            const allVocabArrays = [
+                lesson1Vocab, lesson2Vocab, lesson3Vocab, lesson4Vocab, 
+                lesson5Vocab, lesson6Vocab, lesson7Vocab, lesson8Vocab
+            ];
             let globalTotal = 0;
             allVocabArrays.forEach(arr => globalTotal += arr.length);
 
             let globalLearned = 0;
-            for (let i = 1; i <= 7; i++) {
+            for (let i = 1; i <= 8; i++) {
                 const learned = JSON.parse(localStorage.getItem('hsk4_learned_words_lesson' + i)) || [];
                 globalLearned += learned.length;
             }
