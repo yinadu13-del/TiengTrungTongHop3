@@ -92,6 +92,7 @@
                             <option value="lesson7">Bài 7: 西红柿炒鸡蛋</option>
                             <option value="lesson8">Bài 8: 一封信</option>
                             <option value="lesson9">Bài 9: 成功需要多长时间</option>
+                            <option value="lesson10">Bài 10: 如果有一天</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -235,6 +236,7 @@
                             <option value="lesson7">Bài 7: 西红柿炒鸡蛋</option>
                             <option value="lesson8">Bài 8: 一封信</option>
                             <option value="lesson9">Bài 9: 成功需要多长时间</option>
+                            <option value="lesson10">Bài 10: 如果有一天</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -1045,6 +1047,40 @@
             { id: 5, vietnamese: "Đừng sợ thất bại, thất bại dạy chúng ta cách để đạt được giải thưởng.", chinese: "不要害怕失败，失败教我们怎么得奖。", pinyin: "búyào hàipà shībài, shībài jiāo wǒmen zěnme dé jiǎng.", targetWord: "失败" }
         ];
 
+        // Dữ liệu Bài học 10: 如果有一天
+        const lesson10Vocab = [
+            { id: 1, word: "脆", pinyin: "cuì", translation: "giòn", example: "这种饼干吃起来很脆，味道也不错。", exTranslation: "Loại bánh quy này ăn rất giòn, mùi vị cũng không tồi." },
+            { id: 2, word: "稀饭", pinyin: "xīfàn", translation: "cháo", example: "早上我习惯喝一碗热稀饭。", exTranslation: "Buổi sáng tôi có thói quen ăn một bát cháo nóng." },
+            { id: 3, word: "反应", pinyin: "fǎnyìng", translation: "phản ứng", example: "他的反应非常快，马上就回答了问题。", exTranslation: "Phản ứng của anh ấy rất nhanh, lập tức trả lời ngay câu hỏi." },
+            { id: 4, word: "照顾", pinyin: "zhàogù", translation: "chăm sóc", example: "生病的时候，妈妈一直在身边照顾我。", exTranslation: "Lúc bị ốm, mẹ luôn ở bên cạnh chăm sóc tôi." },
+            { id: 5, word: "关心", pinyin: "guānxīn", translation: "quan tâm", example: "谢谢大家对我的关心和帮助。", exTranslation: "Cảm ơn sự quan tâm và giúp đỡ của mọi người dành cho tôi." },
+            { id: 6, word: "有味儿", pinyin: "yǒuwèir", translation: "có mùi", example: "冰箱里的剩菜有点有味儿了，不能吃了。", exTranslation: "Đồ ăn thừa trong tủ lạnh hơi có mùi rồi, không thể ăn được nữa." },
+            { id: 7, word: "臭", pinyin: "chòu", translation: "hôi, thối", example: "这个垃圾桶太臭了，快把它倒掉吧。", exTranslation: "Cái thùng rác này thối quá, mau đi đổ nó đi." },
+            { id: 8, word: "千万", pinyin: "qiānwàn", translation: "nhất thiết, tuyệt đối (phải/đừng)", example: "明天有重要的考试，你千万别迟到。", exTranslation: "Ngày mai có bài thi quan trọng, bạn tuyệt đối đừng đến muộn." },
+            { id: 9, word: "嫌", pinyin: "xián", translation: "chê, ghét", example: "他总是嫌饭菜不好吃。", exTranslation: "Anh ấy luôn chê cơm nước không ngon." },
+            { id: 10, word: "抽空儿", pinyin: "chōukòngr", translation: "dành thời gian, tranh thủ thời gian rảnh", example: "不管多忙，你也得抽空儿锻炼身体。", exTranslation: "Cho dù bận rộn đến mấy, bạn cũng phải dành thời gian rèn luyện sức khỏe." },
+            { id: 11, word: "享受", pinyin: "xiǎngshòu", translation: "tận hưởng, hưởng thụ", example: "周末我喜欢在家里享受安静的时光。", exTranslation: "Cuối tuần tôi thích ở nhà tận hưởng thời gian yên tĩnh." },
+            { id: 12, word: "牙齿", pinyin: "yáchǐ", translation: "răng", example: "少吃甜食，好好保护你的牙齿。", exTranslation: "Ăn ít đồ ngọt thôi, hãy bảo vệ tốt hàm răng của bạn." },
+            { id: 13, word: "咬", pinyin: "yǎo", translation: "cắn", example: "苹果太硬了，奶奶咬不动。", exTranslation: "Quả táo cứng quá, bà nội cắn không nổi." },
+            { id: 14, word: "动", pinyin: "dòng", translation: "động, nhúc nhích", example: "我累得连一步都走不动了。", exTranslation: "Tôi mệt đến mức một bước cũng đi không nổi nữa." },
+            { id: 15, word: "出生", pinyin: "chūshēng", translation: "sinh ra", example: "这个可爱的婴儿是上个月出生的。", exTranslation: "Đứa trẻ đáng yêu này sinh vào tháng trước." },
+            { id: 16, word: "忙碌", pinyin: "mánglù", translation: "bận rộn", example: "现代人的生活节奏很快，非常忙碌。", exTranslation: "Nhịp sống của người hiện đại rất nhanh, vô cùng bận rộn." },
+            { id: 17, word: "能力", pinyin: "nénglì", translation: "năng lực, khả năng", example: "他有很强的工作能力，大家都很佩服他。", exTranslation: "Anh ấy có năng lực làm việc rất giỏi, mọi người đều rất khâm phục anh ấy." },
+            { id: 18, word: "人生", pinyin: "rénshēng", translation: "nhân sinh, cuộc đời", example: "人生就像一场旅行，重要的是沿途的风景。", exTranslation: "Cuộc đời giống như một chuyến du lịch, quan trọng là phong cảnh dọc đường." },
+            { id: 19, word: "经验", pinyin: "jīngyàn", translation: "kinh nghiệm", example: "这个工作需要丰富的管理经验。", exTranslation: "Công việc này cần kinh nghiệm quản lý phong phú." },
+            { id: 20, word: "读书", pinyin: "dúshū", translation: "đọc sách, đi học", example: "多读书可以让人变得更聪明。", exTranslation: "Đọc sách nhiều có thể khiến con người trở nên thông minh hơn." },
+            { id: 21, word: "未来", pinyin: "wèilái", translation: "tương lai", example: "我们要为美好的未来而继续努力奋斗。", exTranslation: "Chúng ta phải tiếp tục nỗ lực phấn đấu vì một tương lai tươi đẹp." }
+        ];
+
+        // Danh sách câu dịch chọn lọc cho các bài
+        const lesson10Sentences = [
+            { id: 1, vietnamese: "Mẹ luôn chăm sóc và quan tâm đến tôi từ khi tôi mới sinh ra.", chinese: "妈妈从我一出生就一直照顾和关心我。", pinyin: "māma cóng wǒ yì chūshēng jiù yìzhí zhàogù hé guānxīn wǒ.", targetWord: "照顾" },
+            { id: 2, vietnamese: "Bánh quy này rất giòn, nhưng răng của ông nội không tốt, cắn không nổi.", chinese: "这种饼干很脆，但是爷爷的牙齿不好，咬不动。", pinyin: "zhè zhǒng bǐnggān hěn cuì, dànshì yéye de yáchǐ bù hǎo, yǎo bú dòng.", targetWord: "咬" },
+            { id: 3, vietnamese: "Dù công việc có bận rộn đến mấy, bạn cũng nhất thiết phải dành thời gian ăn cơm cùng gia đình.", chinese: "不管工作多忙碌，你也千万要抽空儿陪家人吃饭。", pinyin: "bùguǎn gōngzuò duō mánglù, nǐ yě qiānwàn yào chōukòngr péi jiārén chīfàn.", targetWord: "抽空儿" },
+            { id: 4, vietnamese: "Thực ra, tận hưởng cuộc sống cũng là một loại năng lực quan trọng.", chinese: "其实，享受生活也是一种重要的能力。", pinyin: "qíshí, xiǎngshòu shēnghuó yě shì yì zhǒng zhòngyào de nénglì.", targetWord: "享受" },
+            { id: 5, vietnamese: "Anh ấy không chê tôi thiếu kinh nghiệm, mà còn cho tôi một cơ hội.", chinese: "他不嫌我缺少经验，还给了我一个机会。", pinyin: "tā bù xián wǒ quēshǎo jīngyàn, hái gěi le wǒ yí gè jīhuì.", targetWord: "嫌" }
+        ];
+
         // Quản lý Trạng thái
         let activeLesson = 'lesson1'; // Mặc định Bài 1
         let vocabData = [...lesson1Vocab]; // Bộ dữ liệu đang kích hoạt
@@ -1209,9 +1245,12 @@
             } else if (lessonKey === 'lesson8') {
                 vocabData = [...lesson8Vocab];
                 localSentences = [...lesson8Sentences];
-            } else {
+            } else if (lessonKey === 'lesson9') {
                 vocabData = [...lesson9Vocab];
                 localSentences = [...lesson9Sentences];
+            } else {
+                vocabData = [...lesson10Vocab];
+                localSentences = [...lesson10Sentences];
             }
 
             // Hủy xáo trộn nếu đang bật
@@ -1239,7 +1278,8 @@
                 'lesson6': 'Bài 6: 我进不去',
                 'lesson7': 'Bài 7: 西红柿炒鸡蛋',
                 'lesson8': 'Bài 8: 一封信',
-                'lesson9': 'Bài 9: 成功需要多长时间'
+                'lesson9': 'Bài 9: 成功需要多长时间',
+                'lesson10': 'Bài 10: 如果有一天'
             };
             document.getElementById('list-lesson-title').textContent = lessonTitles[lessonKey];
             document.getElementById('list-vocab-count').textContent = `${vocabData.length} Từ`;
@@ -1261,6 +1301,7 @@
             else if (activeLesson === 'lesson7') vocabData = [...lesson7Vocab];
             else if (activeLesson === 'lesson8') vocabData = [...lesson8Vocab];
             else if (activeLesson === 'lesson9') vocabData = [...lesson9Vocab];
+            else if (activeLesson === 'lesson10') vocabData = [...lesson10Vocab];
             isShuffled = false;
         }
 
@@ -1498,13 +1539,13 @@
         function updateGlobalStats() {
             const allVocabArrays = [
                 lesson1Vocab, lesson2Vocab, lesson3Vocab, lesson4Vocab, 
-                lesson5Vocab, lesson6Vocab, lesson7Vocab, lesson8Vocab, lesson9Vocab
+                lesson5Vocab, lesson6Vocab, lesson7Vocab, lesson8Vocab, lesson9Vocab, lesson10Vocab
             ];
             let globalTotal = 0;
             allVocabArrays.forEach(arr => globalTotal += arr.length);
 
             let globalLearned = 0;
-            for (let i = 1; i <= 9; i++) {
+            for (let i = 1; i <= 10; i++) {
                 const learned = JSON.parse(localStorage.getItem('hsk4_learned_words_lesson' + i)) || [];
                 globalLearned += learned.length;
             }
