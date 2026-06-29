@@ -91,6 +91,7 @@
                             <option value="lesson6">Bài 6: 我进不去</option>
                             <option value="lesson7">Bài 7: 西红柿炒鸡蛋</option>
                             <option value="lesson8">Bài 8: 一封信</option>
+                            <option value="lesson9">Bài 9: 成功需要多长时间</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -233,6 +234,7 @@
                             <option value="lesson6">Bài 6: 我进不去</option>
                             <option value="lesson7">Bài 7: 西红柿炒鸡蛋</option>
                             <option value="lesson8">Bài 8: 一封信</option>
+                            <option value="lesson9">Bài 9: 成功需要多长时间</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -936,6 +938,39 @@
             { id: 30, word: "健康", pinyin: "jiànkāng", translation: "khỏe mạnh, sức khỏe", example: "祝您的父母身体健康，生活幸福。", exTranslation: "Chúc bố mẹ của bạn sức khỏe dồi dào, cuộc sống hạnh phúc." }
         ];
 
+        // Dữ liệu Bài học 9: 成功需要多长时间
+        const lesson9Vocab = [
+            { id: 1, word: "画家", pinyin: "huàjiā", translation: "họa sĩ", example: "他的梦想是成为一名优秀的画家。", exTranslation: "Ước mơ của anh ấy là trở thành một họa sĩ xuất sắc." },
+            { id: 2, word: "美术", pinyin: "měishù", translation: "mỹ thuật", example: "我妹妹在大学学习美术专业。", exTranslation: "Em gái tôi học chuyên ngành mỹ thuật ở trường đại học." },
+            { id: 3, word: "得", pinyin: "dé", translation: "đạt được, nhận được", example: "他在这次比赛中得了一等奖。", exTranslation: "Anh ấy đã nhận được giải nhất trong cuộc thi lần này." },
+            { id: 4, word: "成功", pinyin: "chénggōng", translation: "thành công", example: "只要努力坚持，最后一定会成功。", exTranslation: "Chỉ cần nỗ lực kiên trì, cuối cùng nhất định sẽ thành công." },
+            { id: 5, word: "失败", pinyin: "shībài", translation: "thất bại", example: "失败是成功之母，不要害怕失败。", exTranslation: "Thất bại là mẹ thành công, đừng sợ thất bại." },
+            { id: 6, word: "以为", pinyin: "yǐwéi", translation: "tưởng, cho rằng", example: "我以为今天会下雨，结果是晴天。", exTranslation: "Tôi tưởng hôm nay trời sẽ mưa, kết quả lại là trời nắng." },
+            { id: 7, word: "事情", pinyin: "shìqing", translation: "sự việc, sự tình", example: "这件事情比较复杂，我们需要时间商量。", exTranslation: "Sự việc này khá phức tạp, chúng ta cần thời gian thương lượng." },
+            { id: 8, word: "其实", pinyin: "qíshí", translation: "thực ra", example: "他看起来很严肃，其实人很好。", exTranslation: "Trông anh ấy rất nghiêm túc, thực ra là người rất tốt." },
+            { id: 9, word: "只要", pinyin: "zhǐyào", translation: "chỉ cần", example: "只要你努力，就能实现自己的理想。", exTranslation: "Chỉ cần bạn nỗ lực, thì có thể thực hiện được lý tưởng của mình." },
+            { id: 10, word: "坚持", pinyin: "jiānchí", translation: "kiên trì", example: "每天坚持锻炼身体对健康有好处。", exTranslation: "Mỗi ngày kiên trì rèn luyện thân thể rất có lợi cho sức khỏe." },
+            { id: 11, word: "理想", pinyin: "lǐxiǎng", translation: "lý tưởng, ước mơ", example: "他的理想是当一名医生。", exTranslation: "Lý tưởng của anh ấy là làm một bác sĩ." },
+            { id: 12, word: "实现", pinyin: "shíxiàn", translation: "thực hiện, đạt được", example: "经过多年的努力，他终于实现了梦想。", exTranslation: "Sau nhiều năm nỗ lực, cuối cùng anh ấy đã thực hiện được ước mơ." },
+            { id: 13, word: "画", pinyin: "huà", translation: "vẽ, bức tranh", example: "她画了一幅很漂亮的风景画。", exTranslation: "Cô ấy đã vẽ một bức tranh phong cảnh rất đẹp." },
+            { id: 14, word: "高中", pinyin: "gāozhōng", translation: "trường cấp 3, trung học", example: "高中毕业后，他考上了一所好大学。", exTranslation: "Sau khi tốt nghiệp cấp 3, anh ấy đã thi đỗ một trường đại học tốt." },
+            { id: 15, word: "年级", pinyin: "niánjí", translation: "khối lớp, năm học", example: "我弟弟现在上小学三年级。", exTranslation: "Em trai tôi hiện đang học lớp ba trường tiểu học." },
+            { id: 16, word: "暂时", pinyin: "zànshí", translation: "tạm thời", example: "这个计划我们暂时不考虑。", exTranslation: "Kế hoạch này chúng tôi tạm thời không xem xét." },
+            { id: 17, word: "停止", pinyin: "tíngzhǐ", translation: "dừng lại, đình chỉ", example: "外面的雨终于停止了。", exTranslation: "Mưa bên ngoài cuối cùng đã tạnh rồi." },
+            { id: 18, word: "画笔", pinyin: "huàbǐ", translation: "bút vẽ, cọ vẽ", example: "画家放下手中的画笔，休息了一会儿。", exTranslation: "Họa sĩ đặt bút vẽ trong tay xuống, nghỉ ngơi một lát." },
+            { id: 19, word: "当", pinyin: "dāng", translation: "làm (nghề nghiệp), đảm nhiệm", example: "长大后，我想当一名老师。", exTranslation: "Sau khi lớn lên, tôi muốn làm một giáo viên." },
+            { id: 20, word: "辞", pinyin: "cí", translation: "từ chức, từ bỏ", example: "他辞去了原来的工作，打算自己开公司。", exTranslation: "Anh ấy đã xin nghỉ công việc cũ, dự định tự mở công ty." },
+            { id: 21, word: "游览", pinyin: "yóulǎn", translation: "du ngoạn, tham quan", example: "昨天我们游览了著名的长城。", exTranslation: "Hôm qua chúng tôi đã tham quan Vạn Lý Trường Thành nổi tiếng." },
+            { id: 22, word: "正好", pinyin: "zhènghǎo", translation: "vừa hay, đúng lúc", example: "我正想找你，你正好来了。", exTranslation: "Tôi đang muốn tìm bạn, bạn vừa hay đến lúc." },
+            { id: 23, word: "专门", pinyin: "zhuānmén", translation: "chuyên môn, đặc biệt", example: "这本书是专门为留学生编写的。", exTranslation: "Cuốn sách này được biên soạn đặc biệt dành cho lưu học sinh." },
+            { id: 24, word: "奖", pinyin: "jiǎng", translation: "giải thưởng", example: "她在这次音乐比赛中得了第一名的奖。", exTranslation: "Cô ấy đã nhận được giải nhất trong cuộc thi âm nhạc lần này." },
+            { id: 25, word: "小时候", pinyin: "xiǎoshíhou", translation: "lúc nhỏ", example: "我小时候非常喜欢看动画片。", exTranslation: "Lúc nhỏ tôi rất thích xem phim hoạt hình." },
+            { id: 26, word: "产生", pinyin: "chǎnshēng", translation: "nảy sinh, sinh ra", example: "听了他的话，我对美术产生了兴趣。", exTranslation: "Nghe lời anh ấy nói, tôi nảy sinh hứng thú với mỹ thuật." },
+            { id: 27, word: "算", pinyin: "suàn", translation: "tính, coi như", example: "这个计划算是成功了一半。", exTranslation: "Kế hoạch này coi như đã thành công một nửa." },
+            { id: 28, word: "加", pinyin: "jiā", translation: "cộng, thêm", example: "一加一等于二。", exTranslation: "Một cộng một bằng hai." },
+            { id: 29, word: "等于", pinyin: "děngyú", translation: "bằng", example: "五加五等于十。", exTranslation: "Năm cộng năm bằng mười." }
+        ];
+
         // Danh sách câu dịch chọn lọc cho các bài
         const lesson1Sentences = [
             { id: 1, vietnamese: "Chuyến bay hôm nay bị trễ giờ, vì thế cha mẹ phải đợi ở sân bay lâu hơn.", chinese: "今天的航班晚点了，因此父母要在机场等更久。", pinyin: "jīntiān de hángbān wǎndiǎn le, yīncǐ fùmǔ yào zài jīchǎng děng gèng jiǔ.", targetWord: "航班" },
@@ -1000,6 +1035,14 @@
             { id: 3, vietnamese: "Xin hãy tha thứ cho tôi vì lâu như vậy mới viết thư cho bạn, ở đây tôi mọi thứ đều rất tốt.", chinese: "请原谅我这么久才给你写信，我在这里一切都很好。", pinyin: "qǐng yuánliàng wǒ zhème jiǔ cái gěi nǐ xiě xìn, wǒ zài zhèlǐ yíqiè dōu hěn hǎo.", targetWord: "原谅" },
             { id: 4, vietnamese: "Chúng ta có thể dùng tiếng Trung tiến hành hội thoại cơ bản, thỉnh thoảng còn có thể đi ăn món Trung chính cống.", chinese: "我们可以用汉语进行基本会话，有时还可以去吃地道的中餐。", pinyin: "wǒmen kěyǐ yòng hànyǔ jìnxíng jīběn huìhuà, yǒushí hái kěyǐ qù chī dìdào de zhōngcān.", targetWord: "进行" },
             { id: 5, vietnamese: "Nghe nói anh ấy bị ốm, trong lòng tôi rất buồn, hy vọng anh ấy sớm khôi phục sức khỏe.", chinese: "听说他生病了，我心里很难过，希望他早日恢复健康。", pinyin: "tīngshuō tā shēngbìng le, wǒ xīnli hěn nánguò, xīwàng tā zǎorì huīfù jiànkāng.", targetWord: "难过" }
+        ];
+
+        const lesson9Sentences = [
+            { id: 1, vietnamese: "Chỉ cần kiên trì không từ bỏ, cuối cùng bạn nhất định sẽ đạt được thành công.", chinese: "只要坚持不放弃，最后你一定会取得成功。", pinyin: "zhǐyào jiānchí bú fàngqì, zuìhòu nǐ yídìng huì qǔdé chénggōng.", targetWord: "坚持" },
+            { id: 2, vietnamese: "Thực ra việc này không khó như tôi tưởng, chỉ cần nỗ lực là có thể làm được.", chinese: "其实这件事情没有我以为的那么难，只要努力就能做到。", pinyin: "qíshí zhè jiàn shìqing méiyǒu wǒ yǐwéi de nàme nán, zhǐyào nǔlì jiù néng zuò dào.", targetWord: "其实" },
+            { id: 3, vietnamese: "Ước mơ từ lúc nhỏ của anh ấy là trở thành một họa sĩ, bây giờ cuối cùng cũng thực hiện được rồi.", chinese: "他小时候的理想是当一名画家，现在终于实现了。", pinyin: "tā xiǎoshíhou de lǐxiǎng shì dāng yì míng huàjiā, xiànzài zhōngyú shíxiàn le.", targetWord: "实现" },
+            { id: 4, vietnamese: "Gần đây anh ấy đã xin nghỉ việc, dự định chuyên đi tham quan các danh lam thắng cảnh ở khắp nơi.", chinese: "最近他辞职了，打算专门去各地游览名胜古迹。", pinyin: "zuìjìn tā cízhí le, dǎsuàn zhuānmén qù gèdì yóulǎn míngshèng gǔjì.", targetWord: "专门" },
+            { id: 5, vietnamese: "Đừng sợ thất bại, thất bại dạy chúng ta cách để đạt được giải thưởng.", chinese: "不要害怕失败，失败教我们怎么得奖。", pinyin: "búyào hàipà shībài, shībài jiāo wǒmen zěnme dé jiǎng.", targetWord: "失败" }
         ];
 
         // Quản lý Trạng thái
@@ -1163,9 +1206,12 @@
             } else if (lessonKey === 'lesson7') {
                 vocabData = [...lesson7Vocab];
                 localSentences = [...lesson7Sentences];
-            } else {
+            } else if (lessonKey === 'lesson8') {
                 vocabData = [...lesson8Vocab];
                 localSentences = [...lesson8Sentences];
+            } else {
+                vocabData = [...lesson9Vocab];
+                localSentences = [...lesson9Sentences];
             }
 
             // Hủy xáo trộn nếu đang bật
@@ -1192,7 +1238,8 @@
                 'lesson5': 'Bài 5: 比赛很精彩',
                 'lesson6': 'Bài 6: 我进不去',
                 'lesson7': 'Bài 7: 西红柿炒鸡蛋',
-                'lesson8': 'Bài 8: 一封信'
+                'lesson8': 'Bài 8: 一封信',
+                'lesson9': 'Bài 9: 成功需要多长时间'
             };
             document.getElementById('list-lesson-title').textContent = lessonTitles[lessonKey];
             document.getElementById('list-vocab-count').textContent = `${vocabData.length} Từ`;
@@ -1213,6 +1260,7 @@
             else if (activeLesson === 'lesson6') vocabData = [...lesson6Vocab];
             else if (activeLesson === 'lesson7') vocabData = [...lesson7Vocab];
             else if (activeLesson === 'lesson8') vocabData = [...lesson8Vocab];
+            else if (activeLesson === 'lesson9') vocabData = [...lesson9Vocab];
             isShuffled = false;
         }
 
@@ -1450,13 +1498,13 @@
         function updateGlobalStats() {
             const allVocabArrays = [
                 lesson1Vocab, lesson2Vocab, lesson3Vocab, lesson4Vocab, 
-                lesson5Vocab, lesson6Vocab, lesson7Vocab, lesson8Vocab
+                lesson5Vocab, lesson6Vocab, lesson7Vocab, lesson8Vocab, lesson9Vocab
             ];
             let globalTotal = 0;
             allVocabArrays.forEach(arr => globalTotal += arr.length);
 
             let globalLearned = 0;
-            for (let i = 1; i <= 8; i++) {
+            for (let i = 1; i <= 9; i++) {
                 const learned = JSON.parse(localStorage.getItem('hsk4_learned_words_lesson' + i)) || [];
                 globalLearned += learned.length;
             }
