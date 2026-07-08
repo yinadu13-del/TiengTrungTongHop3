@@ -1588,7 +1588,7 @@
             allVocabArrays.forEach(arr => globalTotal += arr.length);
 
             let globalLearned = 0;
-            for (let i = 1; i <= 10; i++) {
+            for (let i = 1; i <= 11; i++) {
                 const learned = JSON.parse(localStorage.getItem('hsk4_learned_words_lesson' + i)) || [];
                 globalLearned += learned.length;
             }
