@@ -93,6 +93,7 @@
                             <option value="lesson8">Bài 8: 一封信</option>
                             <option value="lesson9">Bài 9: 成功需要多长时间</option>
                             <option value="lesson10">Bài 10: 如果有一天</option>
+                            <option value="lesson10">Bài 11: 痛痛快快玩儿一周</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -237,6 +238,7 @@
                             <option value="lesson8">Bài 8: 一封信</option>
                             <option value="lesson9">Bài 9: 成功需要多长时间</option>
                             <option value="lesson10">Bài 10: 如果有一天</option>
+                            <option value="lesson10">Bài 11: 痛痛快快玩儿一周</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-slate-500">
                             <i class="fa-solid fa-chevron-down text-[10px]"></i>
@@ -1081,6 +1083,42 @@
             { id: 5, vietnamese: "Anh ấy không chê tôi thiếu kinh nghiệm, mà còn cho tôi một cơ hội.", chinese: "他不嫌我缺少经验，还给了我一个机会。", pinyin: "tā bù xián wǒ quēshǎo jīngyàn, hái gěi le wǒ yí gè jīhuì.", targetWord: "嫌" }
         ];
 
+          // Dữ liệu Bài học 11: 痛痛快快玩儿一周
+        const lesson11Vocab = [
+            { id: 1, word: "老家", pinyin: "lǎojiā", translation: "quê hương, quê nhà", example: "每年春节，我都会回老家看望父母。", exTranslation: "Mỗi năm vào dịp Tết, tôi đều về quê thăm bố mẹ." },
+            { id: 2, word: "以外", pinyin: "yǐwài", translation: "ngoài, ra", example: "除了汉语以外，他还会说英语。", exTranslation: "Ngoài tiếng Trung ra, anh ấy còn biết nói tiếng Anh." },
+            { id: 3, word: "只有…才", pinyin: "zhǐyǒu…cái", translation: "chỉ có... mới", example: "只有努力学习，才能取得好成绩。", exTranslation: "Chỉ có nỗ lực học tập mới có thể đạt được thành tích tốt." },
+            { id: 4, word: "连着", pinyin: "liánzhe", translation: "liên tục, liền", example: "他连着工作了十个小时，非常累。", exTranslation: "Anh ấy làm việc liên tục 10 tiếng đồng hồ, vô cùng mệt." },
+            { id: 5, word: "团圆", pinyin: "tuányuán", translation: "đoàn viên, đoàn tụ", example: "中秋节是全家人团圆的日子。", exTranslation: "Tết Trung thu là ngày cả gia đình đoàn tụ." },
+            { id: 6, word: "推销员", pinyin: "tuīxiāoyuán", translation: "nhân viên tiếp thị", example: "他是一名非常优秀的推销员。", exTranslation: "Anh ấy là một nhân viên tiếp thị vô cùng xuất sắc." },
+            { id: 7, word: "羡慕", pinyin: "xiànmù", translation: "ngưỡng mộ, ghen tị", example: "我很羡慕他能去国外留学。", exTranslation: "Tôi rất ngưỡng mộ anh ấy có thể đi du học nước ngoài." },
+            { id: 8, word: "遍", pinyin: "biàn", translation: "khắp, lần (lượng từ)", example: "这篇文章我已经读了三遍了。", exTranslation: "Bài văn này tôi đã đọc ba lần rồi." },
+            { id: 9, word: "愿望", pinyin: "yuànwàng", translation: "nguyện vọng, mong muốn", example: "他的愿望是成为一名医生。", exTranslation: "Nguyện vọng của anh ấy là trở thành một bác sĩ." },
+            { id: 10, word: "难得", pinyin: "nándé", translation: "hiếm có, khó có được", example: "这是一个难得的机会，你一定要抓住。", exTranslation: "Đây là một cơ hội hiếm có, bạn nhất định phải nắm bắt." },
+            { id: 11, word: "黄金周", pinyin: "huángjīnzhōu", translation: "Tuần lễ vàng", example: "十一黄金周去旅游的人非常多。", exTranslation: "Vào Tuần lễ vàng mùng 1 tháng 10, người đi du lịch rất đông." },
+            { id: 12, word: "休假", pinyin: "xiūjià", translation: "nghỉ phép", example: "爸爸下周要休假，我们打算去海边。", exTranslation: "Bố tuần sau sẽ nghỉ phép, chúng tôi dự định đi biển." },
+            { id: 13, word: "五一", pinyin: "wǔyī", translation: "mùng 1 tháng 5", example: "五一劳动节我们放假三天。", exTranslation: "Lễ Quốc tế Lao động mùng 1 tháng 5 chúng tôi được nghỉ 3 ngày." },
+            { id: 14, word: "十一", pinyin: "shíyī", translation: "mùng 1 tháng 10", example: "十一国庆节的时候，很多人去旅行。", exTranslation: "Vào dịp Quốc khánh mùng 1 tháng 10, rất nhiều người đi du lịch." },
+            { id: 15, word: "政府", pinyin: "zhèngfǔ", translation: "chính phủ", example: "政府出台了许多新的政策。", exTranslation: "Chính phủ đã ban hành rất nhiều chính sách mới." },
+            { id: 16, word: "制度", pinyin: "zhìdù", translation: "chế độ", example: "这个公司的管理制度非常严格。", exTranslation: "Chế độ quản lý của công ty này rất nghiêm ngặt." },
+            { id: 17, word: "实行", pinyin: "shíxíng", translation: "thực hành, thi hành", example: "新的休假制度从下个月开始实行。", exTranslation: "Chế độ nghỉ phép mới sẽ bắt đầu thi hành từ tháng sau." },
+            { id: 18, word: "旅行社", pinyin: "lǚxíngshè", translation: "công ty du lịch", example: "我们在旅行社报了一个旅游团。", exTranslation: "Chúng tôi đã đăng ký một tour du lịch ở công ty du lịch." },
+            { id: 19, word: "海边", pinyin: "hǎibiān", translation: "bờ biển, bãi biển", example: "夏天大家都喜欢去海边游泳。", exTranslation: "Mùa hè mọi người đều thích đi bãi biển bơi lội." },
+            { id: 20, word: "晒", pinyin: "shài", translation: "phơi nắng, phơi", example: "外面太阳很大，别把皮肤晒黑了。", exTranslation: "Bên ngoài nắng rất to, đừng để da bị phơi đen nhé." },
+            { id: 21, word: "草原", pinyin: "cǎoyuán", translation: "thảo nguyên", example: "这里的草原又大又美丽。", exTranslation: "Thảo nguyên ở đây vừa rộng lớn vừa xinh đẹp." },
+            { id: 22, word: "制订", pinyin: "zhìdìng", translation: "định ra, lập ra", example: "我们已经制订了详细的旅行计划。", exTranslation: "Chúng tôi đã lập ra một kế hoạch du lịch chi tiết." },
+            { id: 23, word: "普通", pinyin: "pǔtōng", translation: "phổ thông, bình thường", example: "他虽然是一个普通人，但非常努力。", exTranslation: "Anh ấy tuy là một người bình thường, nhưng vô cùng nỗ lực." },
+            { id: 24, word: "青年", pinyin: "qīngnián", translation: "thanh niên", example: "青年人应该有自己的理想和追求。", exTranslation: "Thanh niên nên có lý tưởng và sự theo đuổi của riêng mình." }
+        ];
+
+        const lesson11Sentences = [
+            { id: 1, vietnamese: "Chỉ có nỗ lực làm việc chăm chỉ thì mới có thể thực hiện được nguyện vọng của bản thân.", chinese: "只有努力工作，才能实现自己的愿望。", pinyin: "zhǐyǒu nǔlì gōngzuò, cái néng shíxiàn zìjǐ de yuànwàng.", targetWord: "愿望" },
+            { id: 2, vietnamese: "Tuần lễ vàng Quốc khánh là một cơ hội nghỉ phép hiếm có, chúng tôi dự định đi ra bãi biển phơi nắng.", chinese: "十一黄金周是一个难得的休假机会，我们打算去海边晒太阳。", pinyin: "shíyī huángjīnzhōu shì yí gè nándé de xiūjià jīhuì, wǒmen dǎsuàn qù hǎibiān shài tàiyáng.", targetWord: "黄金周" },
+            { id: 3, vietnamese: "Tết Trung thu là ngày cả gia đình đoàn tụ, mấy ngày liền tôi đều ở lại quê nhà.", chinese: "中秋节是全家人团圆的日子，连着几天我都待在老家。", pinyin: "zhōngqiūjié shì quán jiā rén tuányuán de rìzi, liánzhe jǐ tiān wǒ dōu dāi zài lǎojiā.", targetWord: "团圆" },
+            { id: 4, vietnamese: "Chính phủ vừa thi hành một chế độ mới, mọi người đều rất ngưỡng mộ những thanh niên bình thường đó.", chinese: "政府刚刚实行了新的制度，大家都很羡慕那些普通青年。", pinyin: "zhèngfǔ gānggāng shíxíng le xīn de zhìdù, dàjiā dōu hěn xiànmù nàxiē pǔtōng qīngnián.", targetWord: "实行" },
+            { id: 5, vietnamese: "Trước khi đi đến công ty du lịch, chúng tôi đã lập xong kế hoạch đi du lịch thảo nguyên rồi.", chinese: "去旅行社之前，我们已经制订了去草原旅游的计划。", pinyin: "qù lǚxíngshè zhīqián, wǒmen yǐjīng zhìdìng le qù cǎoyuán lǚyóu de jìhuà.", targetWord: "制订" }
+        ];
+
         // Quản lý Trạng thái
         let activeLesson = 'lesson1'; // Mặc định Bài 1
         let vocabData = [...lesson1Vocab]; // Bộ dữ liệu đang kích hoạt
@@ -1248,9 +1286,12 @@
             } else if (lessonKey === 'lesson9') {
                 vocabData = [...lesson9Vocab];
                 localSentences = [...lesson9Sentences];
-            } else {
+            } else if (lessonKey === 'lesson10') {
                 vocabData = [...lesson10Vocab];
                 localSentences = [...lesson10Sentences];
+            } else {
+                vocabData = [...lesson11Vocab];
+                localSentences = [...lesson11Sentences];
             }
 
             // Hủy xáo trộn nếu đang bật
@@ -1280,6 +1321,7 @@
                 'lesson8': 'Bài 8: 一封信',
                 'lesson9': 'Bài 9: 成功需要多长时间',
                 'lesson10': 'Bài 10: 如果有一天'
+                'lesson11': 'Bài 11: 痛痛快快玩儿一周'
             };
             document.getElementById('list-lesson-title').textContent = lessonTitles[lessonKey];
             document.getElementById('list-vocab-count').textContent = `${vocabData.length} Từ`;
@@ -1302,6 +1344,7 @@
             else if (activeLesson === 'lesson8') vocabData = [...lesson8Vocab];
             else if (activeLesson === 'lesson9') vocabData = [...lesson9Vocab];
             else if (activeLesson === 'lesson10') vocabData = [...lesson10Vocab];
+            else if (activeLesson === 'lesson11') vocabData = [...lesson11Vocab];
             isShuffled = false;
         }
 
@@ -1358,7 +1401,7 @@
 
             const titleMap = {
                 'flashcards': 'Ghi nhớ Flashcards',
-                'quiz': 'Trắc nghiệm HSK4',
+                'quiz': 'Trắc nghiệm Tiếng Trung Tổng Hợp 3',
                 'dictation': 'Chính tả & Luyện viết',
                 'translation': 'Luyện dịch cùng AI',
                 'list': 'Danh sách từ vựng'
@@ -1535,11 +1578,11 @@
             }
         }
 
-        // Cập nhật thống kê toàn hệ thống (tất cả các bài từ 1 đến 8)
+        // Cập nhật thống kê toàn hệ thống (tất cả các bài từ 1 đến 11)
         function updateGlobalStats() {
             const allVocabArrays = [
                 lesson1Vocab, lesson2Vocab, lesson3Vocab, lesson4Vocab, 
-                lesson5Vocab, lesson6Vocab, lesson7Vocab, lesson8Vocab, lesson9Vocab, lesson10Vocab
+                lesson5Vocab, lesson6Vocab, lesson7Vocab, lesson8Vocab, lesson9Vocab, lesson10Vocab, lesson11Vocab
             ];
             let globalTotal = 0;
             allVocabArrays.forEach(arr => globalTotal += arr.length);
@@ -1794,7 +1837,7 @@
             const randomWordObj = vocabData[Math.floor(Math.random() * vocabData.length)];
             
             try {
-                const systemPrompt = "Bạn là giảng viên tiếng Trung chuyên nghiệp luyện thi HSK4. Hãy viết một câu tiếng Việt ngắn gọn, ngữ pháp tự nhiên chuẩn HSK4 và bắt buộc phải có từ vựng yêu cầu. Trả về định dạng JSON nghiêm ngặt.";
+                const systemPrompt = "Bạn là giảng viên tiếng Trung chuyên nghiệp luyện thi HSK4. Hãy viết một câu tiếng Việt ngắn gọn, ngữ pháp tự nhiên chuẩn và bắt buộc phải có từ vựng yêu cầu. Trả về định dạng JSON nghiêm ngặt.";
                 const userQuery = `Hãy tạo một câu tiếng Việt ngắn có độ khó HSK4 sử dụng từ vựng: '${randomWordObj.word}' (${randomWordObj.translation}). Trả về đối tượng JSON gồm các trường: { "vietnamese": "câu tiếng Việt", "chinese": "câu tiếng Trung chuẩn mẫu", "pinyin": "phiên âm pinyin của câu mẫu" }`;
                 const apiKey = "";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
